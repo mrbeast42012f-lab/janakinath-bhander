@@ -50,44 +50,74 @@ body{
   align-items:center;
   justify-content:center;
   text-align:center;
-  background:
-    radial-gradient(circle at 50% 45%,rgba(255,170,50,.24),transparent 20%),
-    radial-gradient(circle at 50% 100%,rgba(185,25,25,.38),transparent 45%),
-    linear-gradient(145deg,#170305,#3b070b 48%,#120203);
-  animation:welcomeOut .9s ease 2.8s forwards;
   pointer-events:none;
+
+  /* DURGA PUJA IMAGE BACKGROUND */
+  background:
+    linear-gradient(
+      180deg,
+      rgba(20,0,0,.18) 0%,
+      rgba(30,0,0,.22) 35%,
+      rgba(0,0,0,.58) 100%
+    ),
+    url("durga-welcome.jpg") center center / cover no-repeat;
+
+  animation:welcomeOut .9s ease 2.8s forwards;
 }
 
-/* Pandal glow */
+/* Cinematic dark overlay */
+
+#welcomeScreen .cinematic-overlay{
+  position:absolute;
+  inset:0;
+  z-index:1;
+  pointer-events:none;
+  background:
+    radial-gradient(
+      ellipse at center,
+      transparent 20%,
+      rgba(0,0,0,.18) 55%,
+      rgba(0,0,0,.62) 100%
+    );
+}
+
+/* Golden glow over Maa Durga */
 
 #welcomeScreen:before{
   content:"";
   position:absolute;
-  width:90vw;
-  height:90vw;
-  max-width:700px;
-  max-height:700px;
-  border-radius:50%;
-  background:radial-gradient(
-    circle,
-    rgba(255,196,83,.18),
-    rgba(255,80,20,.06) 35%,
-    transparent 70%
-  );
+  inset:0;
+  z-index:2;
+  pointer-events:none;
+
+  background:
+    radial-gradient(
+      circle at 50% 42%,
+      rgba(255,207,100,.16),
+      transparent 25%
+    ),
+    radial-gradient(
+      circle at 50% 100%,
+      rgba(180,20,20,.30),
+      transparent 48%
+    );
+
   animation:pujaGlow 2.2s ease-in-out infinite;
 }
 
-/* decorative border */
+/* Decorative border */
 
 #welcomeScreen:after{
   content:"";
   position:absolute;
-  inset:15px;
-  border:1px solid rgba(255,210,110,.28);
+  inset:12px;
+  z-index:20;
+  pointer-events:none;
+  border:1px solid rgba(255,220,130,.42);
   border-radius:22px;
   box-shadow:
-    inset 0 0 35px rgba(255,170,50,.08),
-    0 0 25px rgba(255,150,40,.06);
+    inset 0 0 35px rgba(255,170,50,.10),
+    0 0 25px rgba(255,150,40,.08);
 }
 
 /* =====================================================
@@ -96,88 +126,51 @@ body{
 
 .puja-top{
   position:absolute;
-  top:25px;
+  top:24px;
   left:0;
   width:100%;
-  z-index:3;
-  color:#ffd477;
+  z-index:15;
+  color:#fff1b0;
   font-size:clamp(20px,5vw,38px);
-  letter-spacing:8px;
+  font-weight:900;
+  letter-spacing:5px;
   text-shadow:
-    0 0 10px rgba(255,190,70,.8),
-    0 0 25px rgba(255,90,20,.5);
+    0 0 10px rgba(255,190,70,.9),
+    0 0 25px rgba(255,90,20,.6),
+    0 3px 8px rgba(0,0,0,.8);
   animation:decorReveal 1s ease .15s both;
 }
 
-/* flowers */
+/* Flowers */
 
 .flower-row{
   position:absolute;
-  top:75px;
+  top:76px;
   left:0;
   width:100%;
   display:flex;
   justify-content:space-around;
   padding:0 8%;
-  z-index:3;
+  z-index:15;
   font-size:clamp(18px,4vw,30px);
+  filter:drop-shadow(0 2px 5px rgba(0,0,0,.7));
   animation:flowerFloat 2s ease-in-out infinite;
 }
 
-/* diya */
-
-.diya{
-  position:absolute;
-  bottom:7%;
-  left:50%;
-  transform:translateX(-50%);
-  z-index:5;
-  font-size:clamp(42px,10vw,70px);
-  filter:
-    drop-shadow(0 0 8px #ffcf6a)
-    drop-shadow(0 0 25px #ff6500);
-  animation:
-    diyaReveal .9s ease .5s both,
-    diyaGlow 1.3s ease-in-out 1.4s infinite;
-}
-
-/* diya flame */
-
-.diya-flame{
-  position:absolute;
-  left:50%;
-  bottom:17%;
-  transform:translateX(-50%);
-  width:18px;
-  height:38px;
-  border-radius:50% 50% 50% 50%;
-  background:
-    radial-gradient(
-      ellipse at center bottom,
-      #fff7bd 0 18%,
-      #ffd23d 35%,
-      #ff7a00 65%,
-      transparent 70%
-    );
-  filter:blur(.4px);
-  box-shadow:
-    0 0 12px #ffb300,
-    0 0 35px rgba(255,100,0,.8);
-  animation:flame 1s ease-in-out infinite;
-}
-
 /* =====================================================
-   DHAK / PUJA SIDE DECORATION
+   SIDE DECORATION
 ===================================================== */
 
 .side-decor{
   position:absolute;
   top:50%;
   transform:translateY(-50%);
-  z-index:2;
+  z-index:15;
   font-size:clamp(30px,7vw,55px);
-  opacity:.65;
-  filter:drop-shadow(0 0 12px rgba(255,150,40,.6));
+  opacity:.72;
+  filter:
+    drop-shadow(0 0 12px rgba(255,150,40,.8))
+    drop-shadow(0 3px 7px rgba(0,0,0,.8));
 }
 
 .side-left{
@@ -191,7 +184,7 @@ body{
 }
 
 /* =====================================================
-   PANDAL SILHOUETTE
+   PANDAL
 ===================================================== */
 
 .pandal{
@@ -201,8 +194,8 @@ body{
   transform:translateX(-50%);
   width:min(850px,110vw);
   height:35vh;
-  opacity:.16;
-  z-index:1;
+  opacity:.14;
+  z-index:3;
 }
 
 .pandal-roof{
@@ -259,7 +252,8 @@ body{
 .puja-particles{
   position:absolute;
   inset:0;
-  z-index:2;
+  z-index:8;
+  pointer-events:none;
 }
 
 .puja-particles span{
@@ -289,22 +283,27 @@ body{
 .puja-particles span:nth-child(12){left:55%;top:88%;animation-delay:1.2s}
 
 /* =====================================================
-   MAIN WELCOME CONTENT
+   WELCOME CONTENT
 ===================================================== */
 
 .welcome-content{
   position:relative;
-  z-index:10;
+  z-index:16;
   width:100%;
+  max-width:1100px;
   padding:20px;
   color:white;
   display:flex;
   flex-direction:column;
   align-items:center;
   justify-content:center;
+
+  /* text readable over Durga face */
+  text-shadow:
+    0 3px 10px rgba(0,0,0,.95);
 }
 
-/* Bengali title */
+/* Bengali */
 
 .welcome-bengali{
   font-size:clamp(25px,7vw,58px);
@@ -313,14 +312,14 @@ body{
   letter-spacing:2px;
   text-shadow:
     0 2px 0 #8f2600,
-    0 5px 15px rgba(0,0,0,.75),
-    0 0 25px rgba(255,190,60,.75);
+    0 5px 15px rgba(0,0,0,.9),
+    0 0 25px rgba(255,190,60,.9);
   opacity:0;
   animation:
     bigReveal .9s cubic-bezier(.16,1,.3,1) .25s forwards;
 }
 
-/* small welcome */
+/* Welcome */
 
 .welcome-small{
   margin-top:10px;
@@ -329,7 +328,8 @@ body{
   font-weight:bold;
   color:#ffd477;
   text-shadow:
-    0 0 15px rgba(255,160,30,.8);
+    0 0 15px rgba(255,160,30,.9),
+    0 3px 8px rgba(0,0,0,.9);
   opacity:0;
   animation:
     textReveal .8s ease .55s forwards;
@@ -346,24 +346,28 @@ body{
   letter-spacing:clamp(1px,1vw,5px);
   color:#fff;
   text-transform:uppercase;
+
   text-shadow:
     0 3px 0 #7e1900,
     0 7px 0 #4d0c00,
-    0 12px 25px rgba(0,0,0,.85),
-    0 0 35px rgba(255,122,0,.7);
+    0 12px 25px rgba(0,0,0,.95),
+    0 0 35px rgba(255,122,0,.85);
+
   opacity:0;
   transform:scale(.78);
+
   animation:
     hugeTitle 1.05s cubic-bezier(.16,1,.3,1) .75s forwards;
 }
 
-/* golden separator */
+/* Golden separator */
 
 .welcome-line{
   width:0;
   height:4px;
   margin:20px auto 15px;
   border-radius:20px;
+
   background:
     linear-gradient(
       90deg,
@@ -373,13 +377,16 @@ body{
       #ffcf68,
       transparent
     );
+
   box-shadow:
     0 0 12px #ff9d2e,
-    0 0 28px rgba(255,120,0,.7);
-  animation:lineReveal 1s ease 1.45s forwards;
+    0 0 28px rgba(255,120,0,.8);
+
+  animation:
+    lineReveal 1s ease 1.45s forwards;
 }
 
-/* Blessing text */
+/* Blessing */
 
 .welcome-blessing{
   max-width:850px;
@@ -388,23 +395,70 @@ body{
   line-height:1.5;
   font-weight:bold;
   color:#fff4d0;
+
   text-shadow:
-    0 2px 5px rgba(0,0,0,.8),
-    0 0 12px rgba(255,160,40,.5);
+    0 2px 5px rgba(0,0,0,.95),
+    0 0 12px rgba(255,160,40,.7);
+
   opacity:0;
+
   animation:
     textReveal .8s ease 1.55s forwards;
 }
 
-/* English tagline */
+/* Tagline */
 
 .welcome-tagline{
   margin-top:12px;
   font-size:clamp(9px,2vw,13px);
   letter-spacing:6px;
-  color:rgba(255,255,255,.72);
+  color:rgba(255,255,255,.9);
+  text-shadow:0 2px 5px rgba(0,0,0,.9);
   opacity:0;
   animation:textReveal .8s ease 1.7s forwards;
+}
+
+/* =====================================================
+   DIYA
+===================================================== */
+
+.diya{
+  position:absolute;
+  bottom:7%;
+  left:50%;
+  transform:translateX(-50%);
+  z-index:15;
+  font-size:clamp(42px,10vw,70px);
+  filter:
+    drop-shadow(0 0 8px #ffcf6a)
+    drop-shadow(0 0 25px #ff6500);
+  animation:
+    diyaReveal .9s ease .5s both,
+    diyaGlow 1.3s ease-in-out 1.4s infinite;
+}
+
+.diya-flame{
+  position:absolute;
+  left:50%;
+  bottom:17%;
+  transform:translateX(-50%);
+  width:18px;
+  height:38px;
+  z-index:16;
+  border-radius:50%;
+  background:
+    radial-gradient(
+      ellipse at center bottom,
+      #fff7bd 0 18%,
+      #ffd23d 35%,
+      #ff7a00 65%,
+      transparent 70%
+    );
+  filter:blur(.4px);
+  box-shadow:
+    0 0 12px #ffb300,
+    0 0 35px rgba(255,100,0,.8);
+  animation:flame 1s ease-in-out infinite;
 }
 
 /* =====================================================
@@ -429,11 +483,11 @@ body{
 
 @keyframes pujaGlow{
   0%,100%{
-    transform:scale(.88);
+    transform:scale(.98);
     opacity:.65;
   }
   50%{
-    transform:scale(1.12);
+    transform:scale(1.04);
     opacity:1;
   }
 }
@@ -1177,26 +1231,48 @@ header h1{
 
 @media(max-width:600px){
 
+  #welcomeScreen{
+    /*
+      Mobile-এ Durga face বেশি visible রাখার জন্য
+      center crop
+    */
+    background:
+      linear-gradient(
+        180deg,
+        rgba(20,0,0,.12),
+        rgba(0,0,0,.60)
+      ),
+      url("durga-welcome.jpg") center center / cover no-repeat;
+  }
+
   #welcomeScreen:after{
-    inset:9px;
+    inset:8px;
     border-radius:16px;
   }
 
   .puja-top{
-    top:25px;
-    font-size:20px;
-    letter-spacing:4px;
+    top:20px;
+    font-size:19px;
+    letter-spacing:3px;
   }
 
   .flower-row{
-    top:65px;
-    padding:0 4%;
-    font-size:19px;
+    top:60px;
+    padding:0 3%;
+    font-size:18px;
   }
 
   .side-decor{
-    font-size:30px;
+    font-size:28px;
     opacity:.45;
+  }
+
+  .side-left{
+    left:2%;
+  }
+
+  .side-right{
+    right:2%;
   }
 
   .pandal{
@@ -1204,7 +1280,8 @@ header h1{
   }
 
   .welcome-content{
-    padding:15px;
+    padding:15px 10px;
+    transform:translateY(-1vh);
   }
 
   .welcome-bengali{
@@ -1233,6 +1310,7 @@ header h1{
   .welcome-blessing{
     font-size:13px;
     line-height:1.45;
+    max-width:350px;
   }
 
   .welcome-tagline{
@@ -1241,12 +1319,12 @@ header h1{
   }
 
   .diya{
-    bottom:5%;
+    bottom:4%;
     font-size:45px;
   }
 
   .diya-flame{
-    bottom:12%;
+    bottom:11%;
     width:14px;
     height:28px;
   }
@@ -1338,6 +1416,8 @@ header h1{
 ===================================================== -->
 
 <div id="welcomeScreen">
+
+  <div class="cinematic-overlay"></div>
 
   <div class="puja-top">
     🪔 শুভ শারদীয়া 🪔
