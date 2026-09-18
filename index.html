@@ -10,213 +10,438 @@
   box-sizing:border-box;
   margin:0;
   padding:0;
-  font-family:Arial,sans-serif;
+  font-family:Arial,Helvetica,sans-serif;
+}
+
+:root{
+  --saffron:#ff7a00;
+  --saffron2:#ff9d2e;
+  --deep:#9d3200;
+  --black:#15100d;
+  --dark:#24150d;
+  --cream:#fff8ef;
+  --white:#ffffff;
+  --green:#16a34a;
 }
 
 body{
-  background:#f4f7fb;
-  color:#222;
+  min-height:100vh;
+  background:
+    radial-gradient(circle at 10% 10%,rgba(255,122,0,.12),transparent 30%),
+    radial-gradient(circle at 90% 80%,rgba(255,157,46,.12),transparent 30%),
+    #fffaf5;
+  color:#24150d;
 }
 
+/* =========================
+   HEADER
+========================= */
+
 header{
-  background:linear-gradient(135deg,#0d6efd,#0056b3);
-  color:white;
-  padding:18px 15px;
-  text-align:center;
   position:sticky;
   top:0;
   z-index:50;
+  padding:18px 14px 20px;
+  text-align:center;
+  color:white;
+  background:
+    linear-gradient(135deg,#6f2100 0%,#c94d00 42%,#ff7a00 100%);
+  box-shadow:
+    0 8px 25px rgba(107,38,0,.35),
+    inset 0 -2px 0 rgba(255,255,255,.12);
+  border-bottom-left-radius:24px;
+  border-bottom-right-radius:24px;
+}
+
+header:after{
+  content:"";
+  position:absolute;
+  left:5%;
+  right:5%;
+  bottom:-8px;
+  height:15px;
+  background:rgba(255,122,0,.22);
+  filter:blur(8px);
+  border-radius:50%;
+}
+
+.brand{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:10px;
+  margin-bottom:14px;
+}
+
+.brand-icon{
+  width:45px;
+  height:45px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:14px;
+  font-size:24px;
+  background:linear-gradient(145deg,#ffb35c,#d94c00);
+  box-shadow:
+    7px 7px 15px rgba(65,20,0,.35),
+    inset 2px 2px 5px rgba(255,255,255,.35);
 }
 
 header h1{
   font-size:24px;
-  margin-bottom:12px;
+  letter-spacing:1.5px;
+  text-shadow:3px 4px 5px rgba(0,0,0,.3);
 }
 
+.tagline{
+  font-size:11px;
+  opacity:.9;
+  margin-top:3px;
+  letter-spacing:1px;
+}
+
+/* =========================
+   SEARCH
+========================= */
+
 .search-box{
-  max-width:600px;
+  max-width:650px;
   margin:auto;
+  position:relative;
 }
 
 .search-box input{
   width:100%;
-  padding:13px 16px;
+  padding:15px 20px 15px 48px;
   border:none;
-  border-radius:25px;
   outline:none;
+  border-radius:18px;
   font-size:15px;
+  background:#fffdfb;
+  color:#24150d;
+  box-shadow:
+    0 9px 20px rgba(54,20,0,.3),
+    inset 0 1px 2px rgba(0,0,0,.08);
 }
 
+.search-box:before{
+  content:"🔍";
+  position:absolute;
+  left:17px;
+  top:12px;
+  font-size:19px;
+  z-index:2;
+}
+
+/* =========================
+   TOP BUTTONS
+========================= */
+
 .top-buttons{
-  margin-top:12px;
+  margin-top:14px;
   display:flex;
   justify-content:center;
-  gap:8px;
+  gap:10px;
   flex-wrap:wrap;
 }
 
-button{
-  border:none;
-  cursor:pointer;
-}
-
-.admin-btn,
-.whatsapp-main{
-  padding:10px 16px;
-  border-radius:20px;
+.top-buttons button{
+  padding:11px 18px;
+  border-radius:14px;
   color:white;
   font-weight:bold;
+  font-size:13px;
+  transition:.2s;
+}
+
+.top-buttons button:active{
+  transform:translateY(3px) scale(.98);
 }
 
 .admin-btn{
-  background:#222;
+  background:linear-gradient(145deg,#292929,#0c0c0c);
+  box-shadow:
+    5px 6px 12px rgba(0,0,0,.3),
+    inset 1px 1px 2px rgba(255,255,255,.15);
 }
 
 .whatsapp-main{
-  background:#16a34a;
+  background:linear-gradient(145deg,#31e776,#07943b);
+  box-shadow:
+    5px 6px 12px rgba(0,0,0,.25),
+    inset 1px 1px 2px rgba(255,255,255,.3);
 }
 
+/* =========================
+   CATEGORY BAR
+========================= */
+
 .categories{
-  padding:14px 10px;
-  display:flex;
-  gap:8px;
-  overflow-x:auto;
-  background:white;
   position:sticky;
-  top:117px;
+  top:139px;
   z-index:40;
+  display:flex;
+  gap:9px;
+  overflow-x:auto;
+  padding:15px 12px;
+  background:rgba(255,250,245,.94);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(255,122,0,.12);
+}
+
+.categories::-webkit-scrollbar{
+  display:none;
 }
 
 .categories button{
-  background:#e9eef5;
-  padding:9px 15px;
-  border-radius:20px;
-  white-space:nowrap;
+  flex:0 0 auto;
+  padding:10px 17px;
+  border-radius:14px;
+  background:linear-gradient(145deg,#fff,#f1e5d8);
+  color:#6f2d0b;
+  font-weight:bold;
+  box-shadow:
+    4px 5px 10px rgba(74,30,0,.13),
+    inset 1px 1px 2px white;
+  transition:.2s;
 }
 
 .categories button.active{
-  background:#0d6efd;
   color:white;
+  background:linear-gradient(145deg,#ff9d2e,#c94d00);
+  box-shadow:
+    5px 6px 12px rgba(143,53,0,.28),
+    inset 1px 1px 2px rgba(255,255,255,.3);
 }
 
+/* =========================
+   PRODUCTS
+========================= */
+
 #products{
-  max-width:1200px;
-  margin:20px auto;
-  padding:0 12px;
+  max-width:1250px;
+  margin:25px auto;
+  padding:0 14px 40px;
   display:grid;
   grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
-  gap:15px;
+  gap:19px;
 }
 
 .product-card{
-  background:white;
-  border-radius:14px;
+  position:relative;
   overflow:hidden;
-  box-shadow:0 3px 12px rgba(0,0,0,.08);
-  padding-bottom:14px;
+  border-radius:22px;
+  background:linear-gradient(145deg,#ffffff,#fff5e9);
+  border:1px solid rgba(255,122,0,.12);
+  box-shadow:
+    10px 12px 24px rgba(74,30,0,.13),
+    -4px -4px 10px rgba(255,255,255,.9);
+  transition:transform .25s,box-shadow .25s;
+}
+
+.product-card:before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  height:5px;
+  background:linear-gradient(90deg,#9d3200,#ff7a00,#ffb04d);
+}
+
+.product-card:hover{
+  transform:translateY(-7px);
+  box-shadow:
+    13px 17px 30px rgba(74,30,0,.2),
+    -4px -4px 12px rgba(255,255,255,.9);
+}
+
+.product-image-wrap{
+  padding:12px 12px 0;
 }
 
 .product-card img{
   width:100%;
   height:190px;
+  display:block;
   object-fit:cover;
-  background:#eee;
+  border-radius:16px;
+  background:#f4e6d8;
+  box-shadow:
+    inset 0 0 0 1px rgba(0,0,0,.04),
+    0 5px 13px rgba(80,30,0,.12);
 }
 
 .product-info{
-  padding:13px;
+  padding:14px;
 }
 
 .product-info h3{
   font-size:17px;
-  margin-bottom:7px;
+  color:#32180c;
+  margin-bottom:8px;
 }
 
 .type{
   display:inline-block;
-  background:#e8f1ff;
-  color:#0d6efd;
-  padding:4px 8px;
-  border-radius:12px;
-  font-size:12px;
-  margin-bottom:8px;
+  padding:5px 9px;
+  border-radius:10px;
+  color:#9d3200;
+  background:linear-gradient(145deg,#fff0dc,#ffe0bb);
+  box-shadow:
+    2px 3px 6px rgba(70,25,0,.1);
+  font-size:11px;
+  font-weight:bold;
+  margin-bottom:9px;
 }
 
 .company{
-  color:#666;
+  color:#795d4d;
   font-size:13px;
-  margin-bottom:8px;
+  margin-bottom:9px;
 }
 
 .price{
-  font-size:19px;
+  display:inline-block;
+  color:white;
+  font-size:18px;
   font-weight:bold;
-  color:#159447;
-  margin-bottom:10px;
+  padding:6px 10px;
+  border-radius:10px;
+  background:linear-gradient(145deg,#ff9d2e,#c94d00);
+  box-shadow:
+    3px 4px 8px rgba(143,53,0,.22),
+    inset 1px 1px 2px rgba(255,255,255,.3);
+  margin-bottom:12px;
 }
 
 .details-btn{
   width:100%;
-  padding:10px;
-  border-radius:8px;
-  background:#0d6efd;
+  padding:11px;
+  border-radius:12px;
   color:white;
+  font-weight:bold;
+  background:linear-gradient(145deg,#ff8b1a,#a83700);
+  box-shadow:
+    4px 5px 10px rgba(100,35,0,.22),
+    inset 1px 1px 2px rgba(255,255,255,.25);
+  transition:.2s;
+}
+
+.details-btn:active{
+  transform:translateY(2px);
+}
+
+/* =========================
+   EMPTY
+========================= */
+
+.empty{
+  grid-column:1/-1;
+  text-align:center;
+  padding:60px 10px;
+  color:#876f60;
   font-weight:bold;
 }
 
-.empty{
-  text-align:center;
-  padding:40px 10px;
-  color:#777;
-  grid-column:1/-1;
-}
+/* =========================
+   MODALS
+========================= */
 
-/* MODAL */
 .modal{
   display:none;
   position:fixed;
   inset:0;
-  background:rgba(0,0,0,.65);
   z-index:100;
+  padding:15px;
   align-items:center;
   justify-content:center;
-  padding:15px;
+  background:rgba(30,12,4,.72);
+  backdrop-filter:blur(7px);
 }
 
 .modal-box{
-  background:white;
+  position:relative;
   width:100%;
-  max-width:500px;
+  max-width:520px;
   max-height:92vh;
   overflow-y:auto;
-  border-radius:15px;
-  padding:20px;
-  position:relative;
+  padding:22px;
+  border-radius:24px;
+  background:linear-gradient(145deg,#fff,#fff5e9);
+  border:1px solid rgba(255,122,0,.18);
+  box-shadow:
+    15px 18px 40px rgba(0,0,0,.35),
+    inset 1px 1px 3px white;
+  animation:modalIn .22s ease;
+}
+
+@keyframes modalIn{
+  from{
+    opacity:0;
+    transform:translateY(20px) scale(.95);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0) scale(1);
+  }
 }
 
 .close{
   position:absolute;
-  right:14px;
+  right:15px;
   top:10px;
-  font-size:25px;
+  width:35px;
+  height:35px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
   cursor:pointer;
-  color:#555;
+  font-size:24px;
+  color:#7d300b;
+  background:#ffe7cc;
+  box-shadow:3px 4px 8px rgba(70,25,0,.15);
 }
 
 .modal-box h2{
-  margin-bottom:15px;
-  color:#0d6efd;
+  margin-bottom:17px;
+  color:#9d3200;
+  text-shadow:1px 2px 2px rgba(0,0,0,.08);
+}
+
+/* =========================
+   FORMS
+========================= */
+
+.form-label{
+  display:block;
+  font-size:12px;
+  font-weight:bold;
+  color:#543322;
+  margin-top:4px;
 }
 
 .modal-box input,
 .modal-box select,
 .modal-box textarea{
   width:100%;
-  padding:11px;
-  margin:6px 0 10px;
-  border:1px solid #ddd;
-  border-radius:8px;
+  padding:12px 13px;
+  margin:6px 0 11px;
+  border:1px solid #ead4c1;
+  border-radius:12px;
   outline:none;
+  background:#fffdfb;
+  color:#32180c;
+  box-shadow:
+    inset 2px 2px 6px rgba(80,30,0,.06);
+}
+
+.modal-box input:focus,
+.modal-box select:focus,
+.modal-box textarea:focus{
+  border-color:#ff8a1c;
+  box-shadow:0 0 0 3px rgba(255,122,0,.1);
 }
 
 .modal-box textarea{
@@ -224,126 +449,275 @@ button{
   resize:vertical;
 }
 
-.form-label{
-  font-size:13px;
+.submit-btn,
+.cancel-btn,
+.logout-btn{
+  width:100%;
+  padding:12px;
+  border-radius:12px;
+  color:white;
   font-weight:bold;
-  color:#444;
+  margin-top:6px;
 }
 
 .submit-btn{
-  width:100%;
-  padding:12px;
-  background:#0d6efd;
-  color:white;
-  border-radius:8px;
-  font-weight:bold;
-  margin-top:5px;
-}
-
-.logout-btn{
-  width:100%;
-  padding:11px;
-  background:#dc3545;
-  color:white;
-  border-radius:8px;
-  font-weight:bold;
-  margin-top:8px;
+  background:linear-gradient(145deg,#ff941f,#a83700);
+  box-shadow:4px 5px 10px rgba(100,35,0,.22);
 }
 
 .cancel-btn{
-  width:100%;
-  padding:11px;
-  background:#777;
-  color:white;
-  border-radius:8px;
-  font-weight:bold;
-  margin-top:8px;
+  background:linear-gradient(145deg,#777,#444);
 }
 
-/* CUSTOM TYPE */
+.logout-btn{
+  background:linear-gradient(145deg,#ef5350,#b71c1c);
+}
+
+/* =========================
+   CUSTOM TYPE
+========================= */
+
 #customTypeBox{
   display:none;
+  padding:10px;
+  margin-bottom:5px;
+  border-radius:13px;
+  background:#fff0df;
+  border:1px dashed #ff9d2e;
 }
 
 .custom-type-note{
-  font-size:12px;
-  color:#777;
+  color:#8a6c5b;
+  font-size:11px;
   margin-top:-5px;
-  margin-bottom:8px;
+  margin-bottom:5px;
 }
 
-/* DETAILS */
+/* =========================
+   DETAILS
+========================= */
+
 .details-img{
   width:100%;
-  max-height:280px;
+  max-height:290px;
   object-fit:contain;
-  border-radius:10px;
-  background:#f5f5f5;
+  border-radius:17px;
+  background:#f7e9dc;
   margin-bottom:15px;
+  box-shadow:
+    7px 9px 18px rgba(70,25,0,.13);
 }
 
 .detail-row{
-  padding:8px 0;
-  border-bottom:1px solid #eee;
+  padding:10px 0;
+  border-bottom:1px solid #f0dfd0;
+  font-size:14px;
 }
 
 .detail-row b{
-  color:#444;
+  color:#65331d;
 }
 
 .wa-btn{
   width:100%;
-  padding:12px;
-  background:#25D366;
+  padding:13px;
+  margin-top:17px;
+  border-radius:13px;
   color:white;
-  border-radius:8px;
   font-weight:bold;
-  margin-top:15px;
+  background:linear-gradient(145deg,#36e879,#07943b);
+  box-shadow:
+    5px 6px 12px rgba(0,100,45,.22),
+    inset 1px 1px 2px rgba(255,255,255,.3);
 }
 
-/* WHATSAPP OPTIONS */
+/* =========================
+   WHATSAPP OPTIONS
+========================= */
+
 .wa-option{
   width:100%;
-  padding:13px;
-  margin:7px 0;
-  border-radius:9px;
-  background:#25D366;
+  padding:14px;
+  margin:8px 0;
+  border-radius:13px;
   color:white;
   font-weight:bold;
+  background:linear-gradient(145deg,#36e879,#07943b);
+  box-shadow:
+    5px 6px 12px rgba(0,100,45,.2);
 }
 
 .wa-option.second{
-  background:#128C7E;
+  background:linear-gradient(145deg,#27bda8,#087c6d);
 }
 
+/* =========================
+   ADMIN PRODUCT LIST
+========================= */
+
+.admin-title{
+  margin-top:25px;
+  padding-top:17px;
+  border-top:1px solid #ead4c1;
+}
+
+.admin-product{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:10px;
+  margin:8px 0;
+  border-radius:13px;
+  background:#fff8ef;
+  box-shadow:3px 4px 9px rgba(70,25,0,.08);
+}
+
+.admin-product-info{
+  flex:1;
+}
+
+.admin-product-info strong{
+  display:block;
+  color:#32180c;
+  font-size:13px;
+}
+
+.admin-product-info small{
+  color:#806958;
+}
+
+.admin-actions{
+  display:flex;
+  gap:5px;
+}
+
+.edit-btn,
+.delete-btn{
+  padding:7px 9px;
+  border-radius:8px;
+  color:white;
+  font-size:11px;
+  font-weight:bold;
+}
+
+.edit-btn{
+  background:#d97800;
+}
+
+.delete-btn{
+  background:#c62828;
+}
+
+/* =========================
+   FLOATING WHATSAPP
+========================= */
+
+.floating-wa{
+  position:fixed;
+  right:17px;
+  bottom:18px;
+  z-index:70;
+  width:56px;
+  height:56px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:27px;
+  color:white;
+  background:linear-gradient(145deg,#36e879,#07943b);
+  box-shadow:
+    7px 9px 18px rgba(0,80,30,.3),
+    inset 2px 2px 4px rgba(255,255,255,.35);
+  animation:float 2.4s infinite ease-in-out;
+}
+
+@keyframes float{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-5px)}
+}
+
+/* =========================
+   MOBILE
+========================= */
+
 @media(max-width:600px){
+
+  header{
+    padding:15px 12px 17px;
+  }
+
   header h1{
+    font-size:19px;
+  }
+
+  .brand-icon{
+    width:40px;
+    height:40px;
     font-size:21px;
   }
 
   .categories{
-    top:113px;
+    top:132px;
   }
 
   #products{
-    grid-template-columns:repeat(2,1fr);
-    gap:10px;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:11px;
+    padding:0 10px 35px;
+  }
+
+  .product-image-wrap{
+    padding:8px 8px 0;
+  }
+
+  .product-card{
+    border-radius:17px;
   }
 
   .product-card img{
     height:145px;
+    border-radius:12px;
   }
 
   .product-info{
-    padding:10px;
+    padding:9px;
   }
 
   .product-info h3{
-    font-size:15px;
+    font-size:14px;
+    line-height:1.25;
+  }
+
+  .type{
+    font-size:9px;
+    padding:4px 6px;
+  }
+
+  .company{
+    font-size:11px;
   }
 
   .price{
-    font-size:17px;
+    font-size:15px;
+    padding:5px 7px;
+  }
+
+  .details-btn{
+    padding:9px 5px;
+    font-size:11px;
+  }
+
+  .modal-box{
+    padding:18px;
+    border-radius:20px;
+  }
+
+  .floating-wa{
+    width:52px;
+    height:52px;
+    right:14px;
+    bottom:14px;
   }
 }
 </style>
@@ -352,211 +726,462 @@ button{
 <body>
 
 <header>
-  <h1>💊 JANAKINATH BHANDER</h1>
+
+  <div class="brand">
+    <div class="brand-icon">🏪</div>
+
+    <div>
+      <h1>JANAKINATH BHANDER</h1>
+      <div class="tagline">QUALITY • TRUST • VALUE</div>
+    </div>
+  </div>
 
   <div class="search-box">
     <input
       type="text"
       id="searchInput"
-      placeholder="Search medicine..."
+      placeholder="Search products..."
       oninput="renderProducts()"
     >
   </div>
 
   <div class="top-buttons">
-    <button class="admin-btn" onclick="openLogin()">🔐 Admin</button>
-    <button class="whatsapp-main" onclick="openWhatsAppOptions()">
+
+    <button
+      class="admin-btn"
+      onclick="openLogin()"
+    >
+      🔐 Admin
+    </button>
+
+    <button
+      class="whatsapp-main"
+      onclick="openWhatsAppOptions()"
+    >
       💬 WhatsApp
     </button>
+
   </div>
+
 </header>
 
+
+<!-- CATEGORIES -->
+
 <div class="categories">
-  <button class="active" onclick="setCategory('All',this)">All</button>
-  <button onclick="setCategory('Medicine',this)">Medicine</button>
-  <button onclick="setCategory('Syrup',this)">Syrup</button>
-  <button onclick="setCategory('Tablet',this)">Tablet</button>
-  <button onclick="setCategory('Capsule',this)">Capsule</button>
-  <button onclick="setCategory('Others',this)">Others</button>
+
+  <button
+    class="active"
+    onclick="setCategory('All',this)"
+  >
+    All
+  </button>
+
+  <button
+    onclick="setCategory('Medicine',this)"
+  >
+    Medicine
+  </button>
+
+  <button
+    onclick="setCategory('Syrup',this)"
+  >
+    Syrup
+  </button>
+
+  <button
+    onclick="setCategory('Tablet',this)"
+  >
+    Tablet
+  </button>
+
+  <button
+    onclick="setCategory('Capsule',this)"
+  >
+    Capsule
+  </button>
+
+  <button
+    onclick="setCategory('Others',this)"
+  >
+    Others
+  </button>
+
 </div>
+
+
+<!-- PRODUCTS -->
 
 <div id="products">
-  <div class="empty">Loading products...</div>
+
+  <div class="empty">
+    Loading products...
+  </div>
+
 </div>
 
 
-<!-- PRODUCT DETAILS MODAL -->
-<div class="modal" id="detailsModal">
-  <div class="modal-box">
-    <span class="close" onclick="closeModal('detailsModal')">×</span>
+<!-- FLOATING WHATSAPP -->
 
-    <img id="detailsImage" class="details-img">
+<button
+  class="floating-wa"
+  onclick="openWhatsAppOptions()"
+>
+  💬
+</button>
+
+
+<!-- =========================
+     DETAILS MODAL
+========================= -->
+
+<div class="modal" id="detailsModal">
+
+  <div class="modal-box">
+
+    <span
+      class="close"
+      onclick="closeModal('detailsModal')"
+    >
+      ×
+    </span>
+
+    <img
+      id="detailsImage"
+      class="details-img"
+    >
 
     <h2 id="detailsName"></h2>
 
     <div class="detail-row">
-      <b>Price:</b> ₹<span id="detailsPrice"></span>
+      <b>Price:</b>
+      ₹<span id="detailsPrice"></span>
     </div>
 
     <div class="detail-row">
-      <b>Type:</b> <span id="detailsType"></span>
+      <b>Type:</b>
+      <span id="detailsType"></span>
     </div>
 
     <div class="detail-row">
-      <b>Company:</b> <span id="detailsCompany"></span>
+      <b>Company:</b>
+      <span id="detailsCompany"></span>
     </div>
 
     <div class="detail-row">
-      <b>Pack Size:</b> <span id="detailsPack"></span>
+      <b>Pack Size:</b>
+      <span id="detailsPack"></span>
     </div>
 
     <div class="detail-row">
-      <b>Stock:</b> <span id="detailsStock"></span>
+      <b>Stock:</b>
+      <span id="detailsStock"></span>
     </div>
 
     <div class="detail-row">
-      <b>Product Code:</b> <span id="detailsCode"></span>
+      <b>Product Code:</b>
+      <span id="detailsCode"></span>
     </div>
 
     <div class="detail-row">
-      <b>Description:</b> <span id="detailsDescription"></span>
+      <b>Description:</b>
+      <span id="detailsDescription"></span>
     </div>
 
-    <button class="wa-btn" onclick="openWhatsAppOptions()">
+    <button
+      class="wa-btn"
+      onclick="openWhatsAppOptions()"
+    >
       💬 Enquire on WhatsApp
     </button>
+
   </div>
+
 </div>
 
 
-<!-- WHATSAPP MODAL -->
+<!-- =========================
+     WHATSAPP MODAL
+========================= -->
+
 <div class="modal" id="whatsappModal">
+
   <div class="modal-box">
-    <span class="close" onclick="closeModal('whatsappModal')">×</span>
 
-    <h2>Choose WhatsApp Number</h2>
+    <span
+      class="close"
+      onclick="closeModal('whatsappModal')"
+    >
+      ×
+    </span>
 
-    <button class="wa-option" onclick="sendWhatsApp('919126270705')">
-      💬 WhatsApp: +91 91262 70705
+    <h2>💬 Choose WhatsApp</h2>
+
+    <button
+      class="wa-option"
+      onclick="sendWhatsApp('919126270705')"
+    >
+      💬 +91 91262 70705
     </button>
 
-    <button class="wa-option second" onclick="sendWhatsApp('918436754431')">
-      💬 WhatsApp: +91 84367 54431
+    <button
+      class="wa-option second"
+      onclick="sendWhatsApp('918436754431')"
+    >
+      💬 +91 84367 54431
     </button>
+
   </div>
+
 </div>
 
 
-<!-- LOGIN MODAL -->
+<!-- =========================
+     LOGIN MODAL
+========================= -->
+
 <div class="modal" id="loginModal">
+
   <div class="modal-box">
-    <span class="close" onclick="closeModal('loginModal')">×</span>
+
+    <span
+      class="close"
+      onclick="closeModal('loginModal')"
+    >
+      ×
+    </span>
 
     <h2>🔐 Admin Login</h2>
 
-    <label class="form-label">Admin Gmail</label>
+    <label class="form-label">
+      Admin Gmail
+    </label>
+
     <input
       type="email"
       id="loginEmail"
       placeholder="Enter Admin Gmail"
     >
 
-    <label class="form-label">Password</label>
+    <label class="form-label">
+      Password
+    </label>
+
     <input
       type="password"
       id="loginPassword"
       placeholder="Enter Password"
     >
 
-    <button class="submit-btn" onclick="adminLogin()">
+    <button
+      class="submit-btn"
+      onclick="adminLogin()"
+    >
       Login
     </button>
+
   </div>
+
 </div>
 
 
-<!-- ADMIN MODAL -->
+<!-- =========================
+     ADMIN MODAL
+========================= -->
+
 <div class="modal" id="adminModal">
+
   <div class="modal-box">
 
-    <span class="close" onclick="closeModal('adminModal')">×</span>
+    <span
+      class="close"
+      onclick="closeModal('adminModal')"
+    >
+      ×
+    </span>
 
     <h2>⚙️ Admin Panel</h2>
 
-    <input type="hidden" id="editingId">
+    <input
+      type="hidden"
+      id="editingId"
+    >
 
-    <label class="form-label">Product Name</label>
-    <input id="productName" placeholder="Product Name">
+    <label class="form-label">
+      Product Name
+    </label>
 
-    <label class="form-label">Product Photo URL</label>
-    <input id="productImage" placeholder="Paste image URL">
+    <input
+      id="productName"
+      placeholder="Product Name"
+    >
 
-    <label class="form-label">Price / Rate</label>
-    <input id="productPrice" type="number" placeholder="Price">
 
-    <label class="form-label">Product Type</label>
+    <label class="form-label">
+      Product Photo URL
+    </label>
 
-    <select id="productType" onchange="handleTypeChange()">
-      <option value="Medicine">Medicine</option>
-      <option value="Syrup">Syrup</option>
-      <option value="Tablet">Tablet</option>
-      <option value="Capsule">Capsule</option>
-      <option value="Others">Others</option>
+    <input
+      id="productImage"
+      placeholder="Paste image URL"
+    >
+
+
+    <label class="form-label">
+      Price / Rate
+    </label>
+
+    <input
+      id="productPrice"
+      type="number"
+      placeholder="Price"
+    >
+
+
+    <label class="form-label">
+      Product Type
+    </label>
+
+    <select
+      id="productType"
+      onchange="handleTypeChange()"
+    >
+
+      <option value="Medicine">
+        Medicine
+      </option>
+
+      <option value="Syrup">
+        Syrup
+      </option>
+
+      <option value="Tablet">
+        Tablet
+      </option>
+
+      <option value="Capsule">
+        Capsule
+      </option>
+
+      <option value="Others">
+        Others
+      </option>
+
     </select>
 
+
     <!-- CUSTOM TYPE -->
+
     <div id="customTypeBox">
-      <label class="form-label">Enter Custom Type</label>
+
+      <label class="form-label">
+        Enter Custom Type
+      </label>
 
       <input
         id="customProductType"
-        placeholder="Example: Injection, Ointment, Drops..."
+        placeholder="Example: Grocery, Cosmetic, Food..."
       >
 
       <div class="custom-type-note">
         Others select করলে নিজের মতো Product Type লিখুন।
       </div>
+
     </div>
 
-    <label class="form-label">Company</label>
-    <input id="productCompany" placeholder="Company Name">
 
-    <label class="form-label">Pack Size</label>
-    <input id="productPack" placeholder="Example: 10 Tablets">
+    <label class="form-label">
+      Company
+    </label>
 
-    <label class="form-label">Stock</label>
-    <input id="productStock" placeholder="Example: Available">
+    <input
+      id="productCompany"
+      placeholder="Company Name"
+    >
 
-    <label class="form-label">Product Code</label>
-    <input id="productCode" placeholder="Example: JB001">
 
-    <label class="form-label">Description</label>
+    <label class="form-label">
+      Pack Size
+    </label>
+
+    <input
+      id="productPack"
+      placeholder="Example: 10 Pieces"
+    >
+
+
+    <label class="form-label">
+      Stock
+    </label>
+
+    <input
+      id="productStock"
+      placeholder="Example: Available"
+    >
+
+
+    <label class="form-label">
+      Product Code
+    </label>
+
+    <input
+      id="productCode"
+      placeholder="Example: JB001"
+    >
+
+
+    <label class="form-label">
+      Description
+    </label>
+
     <textarea
       id="productDescription"
       placeholder="Product description..."
     ></textarea>
 
-    <button class="submit-btn" onclick="saveProduct()">
+
+    <button
+      class="submit-btn"
+      onclick="saveProduct()"
+    >
       💾 Save Product
     </button>
 
-    <button class="cancel-btn" onclick="cancelEdit()">
-      Cancel Edit
+    <button
+      class="cancel-btn"
+      onclick="cancelEdit()"
+    >
+      Clear Form
     </button>
 
-    <button class="logout-btn" onclick="adminLogout()">
+    <button
+      class="logout-btn"
+      onclick="adminLogout()"
+    >
       Logout
     </button>
 
+
+    <h3 class="admin-title">
+      📦 Manage Products
+    </h3>
+
+    <div id="adminProductList"></div>
+
   </div>
+
 </div>
 
 
-<!-- FIREBASE -->
+<!-- =========================
+     FIREBASE
+========================= -->
+
 <script type="module">
 
 import { initializeApp }
 from "https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js";
+
 
 import {
   getAuth,
@@ -565,6 +1190,7 @@ import {
   signOut
 }
 from "https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js";
+
 
 import {
   getFirestore,
@@ -578,51 +1204,90 @@ import {
 from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
 
 
+/* =========================
+   FIREBASE CONFIG
+========================= */
+
 const firebaseConfig = {
-  apiKey: "AIzaSyAvW--1xLttocESRPTR2NRAd_SHI90pIq0",
-  authDomain: "janakinath-bhander.firebaseapp.com",
-  projectId: "janakinath-bhander",
-  storageBucket: "janakinath-bhander.firebasestorage.app",
-  messagingSenderId: "180668389458",
-  appId: "1:180668389458:web:eb0aa44c8030373ff3a78b",
-  measurementId: "G-DKL4LQT2VY"
+
+  apiKey:
+    "AIzaSyAvW--1xLttocESRPTR2NRAd_SHI90pIq0",
+
+  authDomain:
+    "janakinath-bhander.firebaseapp.com",
+
+  projectId:
+    "janakinath-bhander",
+
+  storageBucket:
+    "janakinath-bhander.firebasestorage.app",
+
+  messagingSenderId:
+    "180668389458",
+
+  appId:
+    "1:180668389458:web:eb0aa44c8030373ff3a78b",
+
+  measurementId:
+    "G-DKL4LQT2VY"
+
 };
 
 
-const app = initializeApp(firebaseConfig);
+const app =
+  initializeApp(firebaseConfig);
 
-const auth = getAuth(app);
-const db = getFirestore(app);
 
-const ADMIN_UID = "estDvqfCQHWVYXM8sanrqIUniey1";
+const auth =
+  getAuth(app);
+
+
+const db =
+  getFirestore(app);
+
+
+const ADMIN_UID =
+  "estDvqfCQHWVYXM8sanrqIUniey1";
+
 
 let products = [];
+
 let selectedProduct = null;
+
 let currentCategory = "All";
 
 
 /* =========================
-   TYPE CHANGE
+   CUSTOM TYPE
 ========================= */
 
 window.handleTypeChange = function(){
 
-  const type = document.getElementById("productType").value;
+  const type =
+    document.getElementById("productType").value;
 
-  const customBox = document.getElementById("customTypeBox");
-  const customInput = document.getElementById("customProductType");
+  const box =
+    document.getElementById("customTypeBox");
+
+  const input =
+    document.getElementById("customProductType");
+
 
   if(type === "Others"){
 
-    customBox.style.display = "block";
-    customInput.required = true;
+    box.style.display = "block";
+
+    input.required = true;
 
   }else{
 
-    customBox.style.display = "none";
-    customInput.required = false;
-    customInput.value = "";
+    box.style.display = "none";
+
+    input.required = false;
+
+    input.value = "";
   }
+
 };
 
 
@@ -632,23 +1297,32 @@ window.handleTypeChange = function(){
 
 window.openLogin = function(){
 
-  document.getElementById("loginModal").style.display = "flex";
+  document.getElementById("loginModal").style.display =
+    "flex";
+
 };
 
 
 window.adminLogin = async function(){
 
   const email =
-    document.getElementById("loginEmail").value.trim();
+    document.getElementById("loginEmail")
+    .value
+    .trim();
+
 
   const password =
-    document.getElementById("loginPassword").value;
+    document.getElementById("loginPassword")
+    .value;
+
 
   if(!email || !password){
 
     alert("Please enter Gmail and Password.");
+
     return;
   }
+
 
   try{
 
@@ -659,42 +1333,67 @@ window.adminLogin = async function(){
         password
       );
 
+
     if(result.user.uid !== ADMIN_UID){
 
       await signOut(auth);
 
-      alert("Access denied. You are not the Admin.");
+      alert(
+        "Access denied. You are not the Admin."
+      );
+
       return;
     }
 
-    document.getElementById("loginModal").style.display = "none";
 
-    document.getElementById("adminModal").style.display = "flex";
+    document.getElementById("loginModal").style.display =
+      "none";
+
+
+    document.getElementById("adminModal").style.display =
+      "flex";
+
+
+    renderAdminProducts();
+
 
     alert("Admin Login Successful!");
 
+
   }catch(error){
 
-    alert("Login failed. Please check Gmail and Password.");
+    console.error(error);
+
+    alert(
+      "Login failed. Please check Gmail and Password."
+    );
+
   }
+
 };
 
+
+/* =========================
+   LOGOUT
+========================= */
 
 window.adminLogout = async function(){
 
   await signOut(auth);
 
-  document.getElementById("adminModal").style.display = "none";
+  document.getElementById("adminModal").style.display =
+    "none";
 
   alert("Logged out.");
+
 };
 
 
 /* =========================
-   AUTH STATE
+   AUTH
 ========================= */
 
-onAuthStateChanged(auth, user => {
+onAuthStateChanged(auth,user=>{
 
   if(user && user.uid === ADMIN_UID){
 
@@ -714,30 +1413,43 @@ async function loadProducts(){
   try{
 
     const snapshot =
-      await getDocs(collection(db,"products"));
+      await getDocs(
+        collection(db,"products")
+      );
+
 
     products = [];
 
-    snapshot.forEach(item => {
+
+    snapshot.forEach(item=>{
 
       products.push({
+
         id:item.id,
+
         ...item.data()
+
       });
 
     });
 
+
     renderProducts();
+
 
   }catch(error){
 
     console.error(error);
 
     document.getElementById("products").innerHTML =
-      `<div class="empty">
+      `
+      <div class="empty">
         Unable to load products.
-      </div>`;
+      </div>
+      `;
+
   }
+
 }
 
 
@@ -750,89 +1462,150 @@ window.renderProducts = function(){
   const container =
     document.getElementById("products");
 
+
   const search =
     document.getElementById("searchInput")
     .value
     .toLowerCase()
     .trim();
 
-  let filtered = products.filter(product => {
 
-    const name =
-      String(product.name || "").toLowerCase();
+  const filtered =
+    products.filter(product=>{
 
-    const company =
-      String(product.company || "").toLowerCase();
+      const name =
+        String(product.name || "")
+        .toLowerCase();
 
-    const type =
-      String(product.type || "").toLowerCase();
 
-    const matchesSearch =
-      name.includes(search) ||
-      company.includes(search) ||
-      type.includes(search);
+      const company =
+        String(product.company || "")
+        .toLowerCase();
 
-    const matchesCategory =
-      currentCategory === "All" ||
-      type === currentCategory.toLowerCase();
 
-    return matchesSearch && matchesCategory;
-  });
+      const type =
+        String(product.type || "")
+        .toLowerCase();
+
+
+      const matchesSearch =
+        name.includes(search) ||
+        company.includes(search) ||
+        type.includes(search);
+
+
+      /*
+        Custom type যেমন Grocery হলে
+        Others category-তেও দেখাবে।
+      */
+
+      const standardTypes = [
+        "medicine",
+        "syrup",
+        "tablet",
+        "capsule"
+      ];
+
+
+      let matchesCategory = true;
+
+
+      if(currentCategory !== "All"){
+
+        if(currentCategory === "Others"){
+
+          matchesCategory =
+            !standardTypes.includes(type);
+
+        }else{
+
+          matchesCategory =
+            type === currentCategory.toLowerCase();
+
+        }
+
+      }
+
+
+      return matchesSearch && matchesCategory;
+
+    });
 
 
   if(filtered.length === 0){
 
     container.innerHTML =
-      `<div class="empty">
+      `
+      <div class="empty">
         No products found.
-      </div>`;
+      </div>
+      `;
 
     return;
   }
 
 
-  container.innerHTML = filtered.map(product => {
+  container.innerHTML =
+    filtered.map(product=>{
 
-    const image =
-      product.image ||
-      "https://via.placeholder.com/500x400?text=JANAKINATH+BHANDER";
+      const image =
+        product.image ||
+        "https://via.placeholder.com/500x400?text=JANAKINATH+BHANDER";
 
-    return `
-      <div class="product-card">
 
-        <img
-          src="${image}"
-          onerror="this.src='https://via.placeholder.com/500x400?text=JANAKINATH+BHANDER'"
-        >
+      return `
 
-        <div class="product-info">
+        <div class="product-card">
 
-          <h3>${escapeHTML(product.name || "")}</h3>
+          <div class="product-image-wrap">
 
-          <span class="type">
-            ${escapeHTML(product.type || "")}
-          </span>
+            <img
+              src="${escapeHTML(image)}"
+              onerror="
+                this.src='https://via.placeholder.com/500x400?text=JANAKINATH+BHANDER'
+              "
+            >
 
-          <div class="company">
-            ${escapeHTML(product.company || "")}
           </div>
 
-          <div class="price">
-            ₹${escapeHTML(String(product.price || ""))}
-          </div>
 
-          <button
-            class="details-btn"
-            onclick="showDetails('${product.id}')"
-          >
-            View Details
-          </button>
+          <div class="product-info">
+
+            <h3>
+              ${escapeHTML(product.name || "")}
+            </h3>
+
+
+            <span class="type">
+              ${escapeHTML(product.type || "")}
+            </span>
+
+
+            <div class="company">
+              ${escapeHTML(product.company || "")}
+            </div>
+
+
+            <div class="price">
+              ₹${escapeHTML(String(product.price || ""))}
+            </div>
+
+
+            <button
+              class="details-btn"
+              onclick="showDetails('${product.id}')"
+            >
+              View Details
+            </button>
+
+          </div>
 
         </div>
-      </div>
-    `;
 
-  }).join("");
+      `;
+
+    }).join("");
+
 };
 
 
@@ -840,90 +1613,128 @@ window.renderProducts = function(){
    CATEGORY
 ========================= */
 
-window.setCategory = function(category,button){
+window.setCategory =
+function(category,button){
 
-  currentCategory = category;
+  currentCategory =
+    category;
+
 
   document
     .querySelectorAll(".categories button")
-    .forEach(btn => btn.classList.remove("active"));
+    .forEach(btn=>{
+      btn.classList.remove("active");
+    });
+
 
   button.classList.add("active");
 
+
   renderProducts();
+
 };
 
 
 /* =========================
-   SHOW DETAILS
+   DETAILS
 ========================= */
 
-window.showDetails = function(id){
+window.showDetails =
+function(id){
 
   const product =
-    products.find(p => p.id === id);
+    products.find(p=>p.id === id);
+
 
   if(!product) return;
 
-  selectedProduct = product;
+
+  selectedProduct =
+    product;
+
 
   document.getElementById("detailsImage").src =
     product.image ||
     "https://via.placeholder.com/500x400?text=JANAKINATH+BHANDER";
 
+
   document.getElementById("detailsName").textContent =
     product.name || "";
+
 
   document.getElementById("detailsPrice").textContent =
     product.price || "";
 
+
   document.getElementById("detailsType").textContent =
     product.type || "";
+
 
   document.getElementById("detailsCompany").textContent =
     product.company || "";
 
+
   document.getElementById("detailsPack").textContent =
     product.pack || "";
+
 
   document.getElementById("detailsStock").textContent =
     product.stock || "";
 
+
   document.getElementById("detailsCode").textContent =
     product.code || "";
+
 
   document.getElementById("detailsDescription").textContent =
     product.description || "";
 
-  document.getElementById("detailsModal").style.display = "flex";
+
+  document.getElementById("detailsModal").style.display =
+    "flex";
+
 };
 
 
 /* =========================
-   WHATSAPP OPTIONS
+   WHATSAPP
 ========================= */
 
-window.openWhatsAppOptions = function(){
-
-  if(!selectedProduct && products.length > 0){
-
-    alert("Please open a product first.");
-    return;
-  }
-
-  document.getElementById("whatsappModal").style.display = "flex";
-};
-
-
-window.sendWhatsApp = function(number){
+window.openWhatsAppOptions =
+function(){
 
   if(!selectedProduct){
 
-    alert("Please select a product first.");
+    alert(
+      "Please open a product first."
+    );
+
     return;
   }
 
-  const p = selectedProduct;
+
+  document.getElementById("whatsappModal").style.display =
+    "flex";
+
+};
+
+
+window.sendWhatsApp =
+function(number){
+
+  if(!selectedProduct){
+
+    alert(
+      "Please select a product first."
+    );
+
+    return;
+  }
+
+
+  const p =
+    selectedProduct;
+
 
   const message =
 `Hello JANAKINATH BHANDER,
@@ -939,15 +1750,20 @@ Product Code: ${p.code || ""}
 
 I want to know more about this product.`;
 
+
   const url =
     "https://wa.me/" +
     number +
     "?text=" +
     encodeURIComponent(message);
 
+
   window.open(url,"_blank");
 
-  document.getElementById("whatsappModal").style.display = "none";
+
+  document.getElementById("whatsappModal").style.display =
+    "none";
+
 };
 
 
@@ -955,72 +1771,111 @@ I want to know more about this product.`;
    SAVE PRODUCT
 ========================= */
 
-window.saveProduct = async function(){
+window.saveProduct =
+async function(){
 
-  const user = auth.currentUser;
+  const user =
+    auth.currentUser;
+
 
   if(!user || user.uid !== ADMIN_UID){
 
-    alert("Admin login required.");
+    alert(
+      "Admin login required."
+    );
+
     return;
   }
 
 
   const name =
-    document.getElementById("productName").value.trim();
+    document.getElementById("productName")
+    .value
+    .trim();
+
 
   const image =
-    document.getElementById("productImage").value.trim();
+    document.getElementById("productImage")
+    .value
+    .trim();
+
 
   const price =
-    document.getElementById("productPrice").value.trim();
+    document.getElementById("productPrice")
+    .value
+    .trim();
+
 
   const selectedType =
-    document.getElementById("productType").value;
+    document.getElementById("productType")
+    .value;
+
 
   const customType =
     document.getElementById("customProductType")
     .value
     .trim();
 
+
   const company =
-    document.getElementById("productCompany").value.trim();
+    document.getElementById("productCompany")
+    .value
+    .trim();
+
 
   const pack =
-    document.getElementById("productPack").value.trim();
+    document.getElementById("productPack")
+    .value
+    .trim();
+
 
   const stock =
-    document.getElementById("productStock").value.trim();
+    document.getElementById("productStock")
+    .value
+    .trim();
+
 
   const code =
-    document.getElementById("productCode").value.trim();
+    document.getElementById("productCode")
+    .value
+    .trim();
+
 
   const description =
-    document.getElementById("productDescription").value.trim();
+    document.getElementById("productDescription")
+    .value
+    .trim();
 
 
   if(!name || !price){
 
-    alert("Product Name and Price are required.");
+    alert(
+      "Product Name and Price are required."
+    );
+
     return;
   }
 
 
-  /* IMPORTANT:
-     Others হলে custom type save হবে
-  */
+  let finalType =
+    selectedType;
 
-  let finalType = selectedType;
 
   if(selectedType === "Others"){
 
     if(!customType){
 
-      alert("Please enter your Custom Type.");
+      alert(
+        "Please enter your Custom Type."
+      );
+
       return;
     }
 
-    finalType = customType;
+
+    finalType =
+      customType;
+
   }
 
 
@@ -1043,11 +1898,13 @@ window.saveProduct = async function(){
     code:code,
 
     description:description
+
   };
 
 
   const editingId =
-    document.getElementById("editingId").value;
+    document.getElementById("editingId")
+    .value;
 
 
   try{
@@ -1055,26 +1912,50 @@ window.saveProduct = async function(){
     if(editingId){
 
       await updateDoc(
-        doc(db,"products",editingId),
+
+        doc(
+          db,
+          "products",
+          editingId
+        ),
+
         productData
+
       );
 
-      alert("Product updated successfully.");
+
+      alert(
+        "Product updated successfully."
+      );
+
 
     }else{
 
       await addDoc(
-        collection(db,"products"),
+
+        collection(
+          db,
+          "products"
+        ),
+
         productData
+
       );
 
-      alert("Product added successfully.");
+
+      alert(
+        "Product added successfully."
+      );
+
     }
 
 
     clearForm();
 
     await loadProducts();
+
+    renderAdminProducts();
+
 
   }catch(error){
 
@@ -1083,18 +1964,97 @@ window.saveProduct = async function(){
     alert(
       "Could not save product. Please check Firebase settings."
     );
+
   }
+
 };
 
 
 /* =========================
-   EDIT PRODUCT
+   ADMIN PRODUCT LIST
 ========================= */
 
-window.editProduct = function(id){
+function renderAdminProducts(){
+
+  const container =
+    document.getElementById("adminProductList");
+
+
+  if(!container) return;
+
+
+  if(products.length === 0){
+
+    container.innerHTML =
+      `
+      <div class="empty">
+        No products available.
+      </div>
+      `;
+
+    return;
+  }
+
+
+  container.innerHTML =
+    products.map(product=>{
+
+      return `
+
+        <div class="admin-product">
+
+          <div class="admin-product-info">
+
+            <strong>
+              ${escapeHTML(product.name || "")}
+            </strong>
+
+            <small>
+              ${escapeHTML(product.type || "")}
+              • ₹${escapeHTML(String(product.price || ""))}
+            </small>
+
+          </div>
+
+
+          <div class="admin-actions">
+
+            <button
+              class="edit-btn"
+              onclick="editProduct('${product.id}')"
+            >
+              Edit
+            </button>
+
+
+            <button
+              class="delete-btn"
+              onclick="deleteProduct('${product.id}')"
+            >
+              Delete
+            </button>
+
+          </div>
+
+        </div>
+
+      `;
+
+    }).join("");
+
+}
+
+
+/* =========================
+   EDIT
+========================= */
+
+window.editProduct =
+function(id){
 
   const product =
-    products.find(p => p.id === id);
+    products.find(p=>p.id === id);
+
 
   if(!product) return;
 
@@ -1102,17 +2062,25 @@ window.editProduct = function(id){
   document.getElementById("editingId").value =
     product.id;
 
+
   document.getElementById("productName").value =
     product.name || "";
+
 
   document.getElementById("productImage").value =
     product.image || "";
 
+
   document.getElementById("productPrice").value =
     product.price || "";
 
-  const standardTypes =
-    ["Medicine","Syrup","Tablet","Capsule"];
+
+  const standardTypes = [
+    "Medicine",
+    "Syrup",
+    "Tablet",
+    "Capsule"
+  ];
 
 
   if(standardTypes.includes(product.type)){
@@ -1120,15 +2088,19 @@ window.editProduct = function(id){
     document.getElementById("productType").value =
       product.type;
 
-    document.getElementById("customProductType").value = "";
+
+    document.getElementById("customProductType").value =
+      "";
 
   }else{
 
     document.getElementById("productType").value =
       "Others";
 
+
     document.getElementById("customProductType").value =
       product.type || "";
+
   }
 
 
@@ -1138,94 +2110,152 @@ window.editProduct = function(id){
   document.getElementById("productCompany").value =
     product.company || "";
 
+
   document.getElementById("productPack").value =
     product.pack || "";
+
 
   document.getElementById("productStock").value =
     product.stock || "";
 
+
   document.getElementById("productCode").value =
     product.code || "";
+
 
   document.getElementById("productDescription").value =
     product.description || "";
 
-  document.getElementById("adminModal").style.display = "flex";
+
+  document.getElementById("adminModal").scrollTop =
+    0;
+
 };
 
 
 /* =========================
-   DELETE PRODUCT
+   DELETE
 ========================= */
 
-window.deleteProduct = async function(id){
+window.deleteProduct =
+async function(id){
 
-  const user = auth.currentUser;
+  const user =
+    auth.currentUser;
+
 
   if(!user || user.uid !== ADMIN_UID){
 
-    alert("Admin login required.");
+    alert(
+      "Admin login required."
+    );
+
     return;
   }
 
 
-  if(!confirm("Delete this product?")) return;
+  if(!confirm(
+    "Are you sure you want to delete this product?"
+  )){
+
+    return;
+  }
 
 
   try{
 
     await deleteDoc(
-      doc(db,"products",id)
+      doc(
+        db,
+        "products",
+        id
+      )
     );
 
-    alert("Product deleted.");
+
+    alert(
+      "Product deleted."
+    );
+
 
     await loadProducts();
+
+    renderAdminProducts();
+
 
   }catch(error){
 
     console.error(error);
 
-    alert("Could not delete product.");
+    alert(
+      "Could not delete product."
+    );
+
   }
+
 };
 
 
 /* =========================
-   CANCEL / CLEAR
+   CLEAR FORM
 ========================= */
 
-window.cancelEdit = function(){
+window.cancelEdit =
+function(){
 
   clearForm();
+
 };
 
 
 function clearForm(){
 
-  document.getElementById("editingId").value = "";
+  document.getElementById("editingId").value =
+    "";
 
-  document.getElementById("productName").value = "";
 
-  document.getElementById("productImage").value = "";
+  document.getElementById("productName").value =
+    "";
 
-  document.getElementById("productPrice").value = "";
 
-  document.getElementById("productType").value = "Medicine";
+  document.getElementById("productImage").value =
+    "";
 
-  document.getElementById("customProductType").value = "";
 
-  document.getElementById("productCompany").value = "";
+  document.getElementById("productPrice").value =
+    "";
 
-  document.getElementById("productPack").value = "";
 
-  document.getElementById("productStock").value = "";
+  document.getElementById("productType").value =
+    "Medicine";
 
-  document.getElementById("productCode").value = "";
 
-  document.getElementById("productDescription").value = "";
+  document.getElementById("customProductType").value =
+    "";
+
+
+  document.getElementById("productCompany").value =
+    "";
+
+
+  document.getElementById("productPack").value =
+    "";
+
+
+  document.getElementById("productStock").value =
+    "";
+
+
+  document.getElementById("productCode").value =
+    "";
+
+
+  document.getElementById("productDescription").value =
+    "";
+
 
   handleTypeChange();
+
 }
 
 
@@ -1233,24 +2263,33 @@ function clearForm(){
    CLOSE MODAL
 ========================= */
 
-window.closeModal = function(id){
+window.closeModal =
+function(id){
 
-  document.getElementById(id).style.display = "none";
+  document.getElementById(id).style.display =
+    "none";
+
 };
 
 
 /* =========================
-   HTML SECURITY
+   ESCAPE HTML
 ========================= */
 
 function escapeHTML(value){
 
   return String(value)
+
     .replace(/&/g,"&amp;")
+
     .replace(/</g,"&lt;")
+
     .replace(/>/g,"&gt;")
+
     .replace(/"/g,"&quot;")
+
     .replace(/'/g,"&#039;");
+
 }
 
 
