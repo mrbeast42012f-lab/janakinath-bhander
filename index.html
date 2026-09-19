@@ -4,10 +4,7 @@
 
 <meta charset="UTF-8">
 
-<meta
-  name="viewport"
-  content="width=device-width, initial-scale=1.0"
->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>JANAKINATH BHANDER</title>
 
@@ -109,8 +106,7 @@ button{
   position:absolute;
   top:48%;
   font-size:48px;
-  filter:
-    drop-shadow(0 0 12px rgba(255,140,0,.8));
+  filter:drop-shadow(0 0 12px rgba(255,140,0,.8));
   animation:drumFloat 1.8s infinite ease-in-out;
 }
 
@@ -153,8 +149,7 @@ button{
   right:35px;
   bottom:0;
   height:110px;
-  border:
-    4px solid rgba(255,190,60,.55);
+  border:4px solid rgba(255,190,60,.55);
   background:
     linear-gradient(
       rgba(255,120,0,.15),
@@ -182,10 +177,8 @@ button{
   position:absolute;
   bottom:45px;
   font-size:55px;
-  filter:
-    drop-shadow(0 0 18px #ff6a00);
-  animation:
-    diyaGlow .8s infinite alternate;
+  filter:drop-shadow(0 0 18px #ff6a00);
+  animation:diyaGlow .8s infinite alternate;
 }
 
 .diya-flame{
@@ -203,7 +196,7 @@ button{
   filter:
     blur(.4px)
     drop-shadow(0 0 15px #ff8a00);
-  animation:flame 0.5s infinite alternate;
+  animation:flame .5s infinite alternate;
 }
 
 .welcome-content{
@@ -212,8 +205,7 @@ button{
   text-align:center;
   color:white;
   padding:25px;
-  animation:
-    welcomeContent 1.2s ease forwards;
+  animation:welcomeContent 1.2s ease forwards;
 }
 
 .welcome-bengali{
@@ -314,21 +306,13 @@ button{
 }
 
 @keyframes diyaGlow{
-  from{
-    transform:scale(.96);
-  }
-  to{
-    transform:scale(1.08);
-  }
+  from{transform:scale(.96);}
+  to{transform:scale(1.08);}
 }
 
 @keyframes flame{
-  from{
-    transform:scale(.9) rotate(-3deg);
-  }
-  to{
-    transform:scale(1.1) rotate(3deg);
-  }
+  from{transform:scale(.9) rotate(-3deg);}
+  to{transform:scale(1.1) rotate(3deg);}
 }
 
 @keyframes drumFloat{
@@ -362,42 +346,60 @@ header{
   position:sticky;
   top:0;
   z-index:1000;
+
   display:flex;
   align-items:center;
+
   gap:18px;
+
   padding:14px 18px;
+
   background:white;
-  box-shadow:0 3px 18px rgba(0,0,0,.08);
+
+  box-shadow:
+    0 3px 18px rgba(0,0,0,.08);
 }
 
 .brand{
   display:flex;
   align-items:center;
   gap:10px;
+
   min-width:max-content;
 }
 
 .brand-icon{
   width:44px;
   height:44px;
+
   border-radius:12px;
+
   display:flex;
   align-items:center;
   justify-content:center;
+
   background:#ff7a00;
+
   font-size:23px;
+
+  flex-shrink:0;
 }
 
 .brand h1{
   margin:0;
+
   font-size:20px;
+
   font-weight:900;
 }
 
 .tagline{
   font-size:9px;
+
   letter-spacing:2px;
+
   color:#777;
+
   margin-top:3px;
 }
 
@@ -407,10 +409,15 @@ header{
 
 .search-box input{
   width:100%;
+
   border:1px solid #ddd;
+
   border-radius:12px;
+
   padding:12px 15px;
+
   outline:none;
+
   font-size:14px;
 }
 
@@ -420,15 +427,23 @@ header{
 
 .top-buttons{
   display:flex;
+
   gap:8px;
+
+  flex-shrink:0;
 }
 
 .admin-btn,
 .whatsapp-main{
   border:0;
+
   border-radius:10px;
+
   padding:11px 14px;
+
   font-weight:bold;
+
+  white-space:nowrap;
 }
 
 .admin-btn{
@@ -447,25 +462,37 @@ header{
 
 .categories{
   display:flex;
+
   gap:8px;
+
   padding:14px 18px;
+
   overflow-x:auto;
+
   background:#fff;
+
   border-bottom:1px solid #eee;
 }
 
 .category-btn{
   flex:none;
+
   border:1px solid #ddd;
+
   background:white;
+
   border-radius:20px;
+
   padding:9px 16px;
+
   font-weight:bold;
 }
 
 .category-btn.active{
   background:#ff7a00;
+
   color:white;
+
   border-color:#ff7a00;
 }
 
@@ -475,29 +502,45 @@ header{
 
 #products{
   padding:20px;
+
   display:grid;
+
   grid-template-columns:
-    repeat(auto-fill,minmax(220px,1fr));
+    repeat(
+      auto-fill,
+      minmax(220px,1fr)
+    );
+
   gap:18px;
 }
 
 .product-card{
   background:white;
+
   border-radius:16px;
+
   overflow:hidden;
-  box-shadow:0 5px 20px rgba(0,0,0,.08);
+
+  box-shadow:
+    0 5px 20px rgba(0,0,0,.08);
+
   transition:.25s;
 }
 
 .product-card:hover{
   transform:translateY(-4px);
-  box-shadow:0 10px 28px rgba(0,0,0,.12);
+
+  box-shadow:
+    0 10px 28px rgba(0,0,0,.12);
 }
 
 .product-image{
   width:100%;
+
   height:190px;
+
   object-fit:cover;
+
   background:#f1f1f1;
 }
 
@@ -507,24 +550,35 @@ header{
 
 .product-name{
   font-size:17px;
+
   font-weight:800;
+
   margin-bottom:7px;
 }
 
 .product-company{
   color:#777;
+
   font-size:13px;
+
   margin-bottom:10px;
 }
 
 .product-type{
   display:inline-block;
+
   background:#fff0e2;
+
   color:#d65b00;
+
   padding:5px 8px;
+
   border-radius:8px;
+
   font-size:11px;
+
   font-weight:bold;
+
   margin-bottom:10px;
 }
 
@@ -534,24 +588,34 @@ header{
 
 .price{
   display:flex;
+
   flex-wrap:wrap;
+
   gap:6px;
+
   margin-bottom:12px;
 }
 
 .rate-item{
   display:inline-block;
+
   color:white;
+
   font-size:16px;
+
   font-weight:bold;
+
   padding:6px 9px;
+
   border-radius:10px;
+
   background:
     linear-gradient(
       145deg,
       #ff9d2e,
       #c94d00
     );
+
   box-shadow:
     3px 4px 8px rgba(143,53,0,.22),
     inset 1px 1px 2px rgba(255,255,255,.3);
@@ -559,11 +623,17 @@ header{
 
 .view-btn{
   width:100%;
+
   border:0;
+
   background:#222;
+
   color:white;
+
   border-radius:10px;
+
   padding:11px;
+
   font-weight:bold;
 }
 
@@ -573,17 +643,29 @@ header{
 
 .floating-whatsapp{
   position:fixed;
+
   right:18px;
+
   bottom:18px;
+
   z-index:900;
+
   width:58px;
+
   height:58px;
+
   border-radius:50%;
+
   border:0;
+
   background:#25d366;
+
   color:white;
+
   font-size:27px;
-  box-shadow:0 7px 20px rgba(0,0,0,.2);
+
+  box-shadow:
+    0 7px 20px rgba(0,0,0,.2);
 }
 
 /* =====================================================
@@ -592,40 +674,63 @@ header{
 
 .modal{
   position:fixed;
+
   inset:0;
+
   z-index:5000;
+
   display:none;
+
   align-items:center;
+
   justify-content:center;
+
   padding:15px;
+
   background:rgba(0,0,0,.62);
 }
 
 .modal-box{
   width:min(600px,100%);
+
   max-height:92vh;
+
   overflow-y:auto;
+
   background:white;
+
   border-radius:18px;
+
   padding:20px;
+
   position:relative;
 }
 
 .modal-title{
   font-size:22px;
+
   font-weight:900;
+
   margin-bottom:18px;
 }
 
 .close-btn{
   position:absolute;
+
   right:15px;
+
   top:12px;
+
   border:0;
+
   background:#f1f1f1;
+
   width:34px;
+
   height:34px;
+
   border-radius:50%;
+
   font-size:18px;
 }
 
@@ -635,51 +740,78 @@ header{
 
 .details-image{
   width:100%;
+
   max-height:320px;
+
   object-fit:contain;
+
   border-radius:14px;
+
   background:#f5f5f5;
+
   margin-bottom:15px;
 }
 
 .detail-row{
   display:grid;
-  grid-template-columns:130px 1fr;
+
+  grid-template-columns:
+    130px 1fr;
+
   gap:10px;
+
   padding:9px 0;
+
   border-bottom:1px solid #eee;
+
   font-size:14px;
 }
 
 .details-rates{
   display:flex;
+
   flex-wrap:wrap;
+
   gap:7px;
 }
 
 .detail-rate{
   background:#fff0e2;
+
   color:#c64e00;
+
   border-radius:9px;
+
   padding:6px 9px;
+
   font-weight:bold;
 }
 
 .details-description{
   margin-top:15px;
+
   line-height:1.6;
+
   color:#555;
 }
 
 .detail-whatsapp{
   margin-top:18px;
+
   width:100%;
+
   border:0;
+
   background:#25d366;
+
   color:white;
+
   padding:13px;
+
   border-radius:11px;
+
   font-weight:bold;
+
   font-size:15px;
 }
 
@@ -689,13 +821,21 @@ header{
 
 .whatsapp-option{
   width:100%;
+
   border:0;
+
   background:#25d366;
+
   color:white;
+
   padding:14px;
+
   border-radius:11px;
+
   margin-top:10px;
+
   font-weight:bold;
+
   font-size:15px;
 }
 
@@ -709,8 +849,11 @@ header{
 
 .form-label{
   display:block;
+
   font-size:13px;
+
   font-weight:bold;
+
   margin-bottom:6px;
 }
 
@@ -718,31 +861,44 @@ header{
 .form-select,
 .form-textarea{
   width:100%;
+
   border:1px solid #ddd;
+
   border-radius:10px;
+
   padding:11px;
+
   outline:none;
 }
 
 .form-textarea{
   min-height:100px;
+
   resize:vertical;
 }
 
 .login-btn,
 .save-btn{
   width:100%;
+
   border:0;
+
   background:#ff7a00;
+
   color:white;
+
   padding:12px;
+
   border-radius:10px;
+
   font-weight:bold;
 }
 
 .rate-note{
   margin-top:6px;
+
   font-size:11px;
+
   color:#777;
 }
 
@@ -752,15 +908,21 @@ header{
 
 .admin-actions{
   display:flex;
+
   gap:8px;
+
   margin-top:15px;
 }
 
 .admin-actions button{
   flex:1;
+
   border:0;
+
   border-radius:10px;
+
   padding:11px;
+
   font-weight:bold;
 }
 
@@ -770,135 +932,302 @@ header{
 
 .logout-btn{
   background:#222;
+
   color:white;
 }
 
 .manage-title{
   margin-top:25px;
+
   margin-bottom:12px;
+
   font-size:18px;
+
   font-weight:900;
 }
 
 .admin-product{
   border:1px solid #eee;
+
   border-radius:12px;
+
   padding:12px;
+
   margin-bottom:10px;
 }
 
 .admin-product-name{
   font-weight:bold;
+
   margin-bottom:5px;
 }
 
 .admin-product-price{
   color:#d45a00;
+
   font-weight:bold;
+
   font-size:13px;
 }
 
 .admin-product-actions{
   display:flex;
+
   gap:7px;
+
   margin-top:10px;
 }
 
 .admin-product-actions button{
   flex:1;
+
   border:0;
+
   padding:8px;
+
   border-radius:8px;
+
   font-weight:bold;
 }
 
 .edit-btn{
   background:#e9f2ff;
+
   color:#1769aa;
 }
 
 .delete-btn{
   background:#ffe7e7;
+
   color:#c40000;
 }
 
 /* =====================================================
-   RESPONSIVE
+   MOBILE HEADER FIX
 ===================================================== */
 
 @media(max-width:700px){
 
   header{
-    flex-wrap:wrap;
+
+    display:grid;
+
+    grid-template-columns:
+      minmax(0,1fr)
+      auto;
+
+    align-items:center;
+
     gap:10px;
-    padding:11px;
+
+    padding:10px;
+
   }
 
   .brand{
-    width:100%;
+
+    width:auto;
+
+    min-width:0;
+
+    overflow:hidden;
+
   }
 
-  .search-box{
-    order:3;
-    width:100%;
-    flex:none;
+  .brand-icon{
+
+    width:40px;
+
+    height:40px;
+
+    font-size:20px;
+
+    flex-shrink:0;
+
+  }
+
+  .brand h1{
+
+    font-size:15px;
+
+    white-space:nowrap;
+
+    overflow:hidden;
+
+    text-overflow:ellipsis;
+
+  }
+
+  .tagline{
+
+    font-size:7px;
+
+    letter-spacing:1.5px;
+
   }
 
   .top-buttons{
-    position:absolute;
-    right:10px;
-    top:12px;
+
+    position:static;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:flex-end;
+
+    gap:5px;
+
+    flex-shrink:0;
+
   }
 
   .admin-btn,
   .whatsapp-main{
-    padding:9px 10px;
-    font-size:11px;
+
+    padding:8px 8px;
+
+    font-size:10px;
+
+    white-space:nowrap;
+
   }
 
-  .brand h1{
-    font-size:17px;
+  .search-box{
+
+    grid-column:1 / -1;
+
+    width:100%;
+
+    flex:none;
+
+    order:unset;
+
+  }
+
+  .search-box input{
+
+    width:100%;
+
+    padding:11px 13px;
+
+    font-size:13px;
+
+  }
+
+  .categories{
+
+    padding:11px;
+
   }
 
   #products{
+
     padding:12px;
+
     grid-template-columns:
       repeat(2,minmax(0,1fr));
+
     gap:10px;
+
   }
 
   .product-image{
+
     height:145px;
+
   }
 
   .product-info{
+
     padding:10px;
+
   }
 
   .product-name{
+
     font-size:14px;
+
+  }
+
+  .product-company{
+
+    font-size:11px;
+
   }
 
   .rate-item{
+
     font-size:13px;
+
     padding:5px 7px;
+
   }
 
   .view-btn{
+
     padding:9px;
+
     font-size:12px;
+
   }
 
   .welcome-title{
+
     font-size:34px;
+
   }
 
   .welcome-bengali{
+
     font-size:18px;
+
   }
 
   .side-decor{
+
     font-size:35px;
+
+  }
+
+}
+
+/* =====================================================
+   VERY SMALL MOBILE
+===================================================== */
+
+@media(max-width:390px){
+
+  .brand h1{
+
+    font-size:13px;
+
+  }
+
+  .brand-icon{
+
+    width:36px;
+
+    height:36px;
+
+    font-size:18px;
+
+  }
+
+  .admin-btn,
+  .whatsapp-main{
+
+    padding:7px 6px;
+
+    font-size:9px;
+
+  }
+
+  #products{
+
+    grid-template-columns:
+      repeat(2,minmax(0,1fr));
+
   }
 
 }
@@ -908,6 +1237,7 @@ header{
 </head>
 
 <body>
+
 
 <!-- =====================================================
      DURGA PUJA WELCOME SCREEN
@@ -936,10 +1266,15 @@ header{
   </div>
 
   <div class="pandal">
+
     <div class="pandal-roof"></div>
+
     <div class="pandal-body"></div>
+
     <div class="pandal-column one"></div>
+
     <div class="pandal-column two"></div>
+
   </div>
 
   <div class="diya-flame"></div>
@@ -949,6 +1284,7 @@ header{
   </div>
 
   <div class="puja-particles">
+
     <span>🌸</span>
     <span>🌺</span>
     <span>🌼</span>
@@ -961,6 +1297,7 @@ header{
     <span>🌸</span>
     <span>🌺</span>
     <span>✨</span>
+
   </div>
 
   <div class="welcome-content">
@@ -1019,16 +1356,6 @@ header{
 
   </div>
 
-  <div class="search-box">
-
-    <input
-      type="text"
-      id="searchInput"
-      placeholder="Search products..."
-      oninput="renderProducts()"
-    >
-
-  </div>
 
   <div class="top-buttons">
 
@@ -1045,6 +1372,18 @@ header{
     >
       💬 WhatsApp
     </button>
+
+  </div>
+
+
+  <div class="search-box">
+
+    <input
+      type="text"
+      id="searchInput"
+      placeholder="Search products..."
+      oninput="renderProducts()"
+    >
 
   </div>
 
@@ -1666,10 +2005,8 @@ const firebaseConfig = {
 const app =
   initializeApp(firebaseConfig);
 
-
 const auth =
   getAuth(app);
-
 
 const db =
   getFirestore(app);
@@ -2455,7 +2792,10 @@ async function(){
     ).value.trim();
 
 
-  if(type === "Others" && customType){
+  if(
+    type === "Others" &&
+    customType
+  ){
 
     type =
       customType;
