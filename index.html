@@ -38,7 +38,7 @@ body{
 }
 
 /* =====================================================
-   DURGA PUJA FULL SCREEN WELCOME
+   DURGA PUJA WELCOME
 ===================================================== */
 
 #welcomeScreen{
@@ -51,16 +51,9 @@ body{
   justify-content:center;
   text-align:center;
   pointer-events:none;
-
-  /* FULL SCREEN MAA DURGA IMAGE */
   background:#160003;
-
   animation:welcomeOut .9s ease 2.8s forwards;
 }
-
-/* =====================================================
-   MAA DURGA BACKGROUND
-===================================================== */
 
 #welcomeScreen .durga-background{
   position:absolute;
@@ -87,11 +80,8 @@ body{
 
   transform:scale(1.03);
 
-  animation:
-    durgaZoom 3.4s ease-out forwards;
+  animation:durgaZoom 3.4s ease-out forwards;
 }
-
-/* Cinematic overlay */
 
 #welcomeScreen .cinematic-overlay{
   position:absolute;
@@ -107,8 +97,6 @@ body{
       rgba(0,0,0,.52) 100%
     );
 }
-
-/* Golden glow */
 
 #welcomeScreen:before{
   content:"";
@@ -132,8 +120,6 @@ body{
   animation:pujaGlow 2.2s ease-in-out infinite;
 }
 
-/* Decorative border */
-
 #welcomeScreen:after{
   content:"";
   position:absolute;
@@ -148,10 +134,6 @@ body{
     inset 0 0 35px rgba(255,170,50,.12),
     0 0 25px rgba(255,150,40,.10);
 }
-
-/* =====================================================
-   TOP FESTIVE
-===================================================== */
 
 .puja-top{
   position:absolute;
@@ -173,8 +155,6 @@ body{
   animation:decorReveal 1s ease .15s both;
 }
 
-/* Flowers */
-
 .flower-row{
   position:absolute;
   top:76px;
@@ -190,26 +170,18 @@ body{
 
   font-size:clamp(18px,4vw,30px);
 
-  filter:
-    drop-shadow(0 2px 5px rgba(0,0,0,.8));
+  filter:drop-shadow(0 2px 5px rgba(0,0,0,.8));
 
   animation:flowerFloat 2s ease-in-out infinite;
 }
 
-/* =====================================================
-   SIDE DECOR
-===================================================== */
-
 .side-decor{
   position:absolute;
   top:50%;
-
   transform:translateY(-50%);
-
   z-index:15;
 
   font-size:clamp(30px,7vw,55px);
-
   opacity:.75;
 
   filter:
@@ -227,15 +199,10 @@ body{
   animation:sideFloat 2s ease-in-out .5s infinite;
 }
 
-/* =====================================================
-   PANDAL
-===================================================== */
-
 .pandal{
   position:absolute;
   left:50%;
   bottom:-15px;
-
   transform:translateX(-50%);
 
   width:min(850px,110vw);
@@ -249,7 +216,6 @@ body{
   position:absolute;
   left:50%;
   bottom:100px;
-
   transform:translateX(-50%);
 
   width:75%;
@@ -303,16 +269,10 @@ body{
   right:18%;
 }
 
-/* =====================================================
-   GOLD PARTICLES
-===================================================== */
-
 .puja-particles{
   position:absolute;
   inset:0;
-
   z-index:8;
-
   pointer-events:none;
 }
 
@@ -332,89 +292,24 @@ body{
 
   opacity:0;
 
-  animation:
-    goldFloat 2.5s ease-in-out infinite;
+  animation:goldFloat 2.5s ease-in-out infinite;
 }
 
-.puja-particles span:nth-child(1){
-  left:8%;
-  top:28%;
-  animation-delay:.1s
-}
-
-.puja-particles span:nth-child(2){
-  left:17%;
-  top:55%;
-  animation-delay:.7s
-}
-
-.puja-particles span:nth-child(3){
-  left:27%;
-  top:20%;
-  animation-delay:1.1s
-}
-
-.puja-particles span:nth-child(4){
-  left:38%;
-  top:73%;
-  animation-delay:.4s
-}
-
-.puja-particles span:nth-child(5){
-  left:49%;
-  top:16%;
-  animation-delay:1.4s
-}
-
-.puja-particles span:nth-child(6){
-  left:60%;
-  top:67%;
-  animation-delay:.8s
-}
-
-.puja-particles span:nth-child(7){
-  left:72%;
-  top:24%;
-  animation-delay:.2s
-}
-
-.puja-particles span:nth-child(8){
-  left:82%;
-  top:58%;
-  animation-delay:1s
-}
-
-.puja-particles span:nth-child(9){
-  left:91%;
-  top:35%;
-  animation-delay:.5s
-}
-
-.puja-particles span:nth-child(10){
-  left:12%;
-  top:82%;
-  animation-delay:1.5s
-}
-
-.puja-particles span:nth-child(11){
-  left:88%;
-  top:78%;
-  animation-delay:.3s
-}
-
-.puja-particles span:nth-child(12){
-  left:55%;
-  top:88%;
-  animation-delay:1.2s
-}
-
-/* =====================================================
-   WELCOME CONTENT
-===================================================== */
+.puja-particles span:nth-child(1){left:8%;top:28%;animation-delay:.1s}
+.puja-particles span:nth-child(2){left:17%;top:55%;animation-delay:.7s}
+.puja-particles span:nth-child(3){left:27%;top:20%;animation-delay:1.1s}
+.puja-particles span:nth-child(4){left:38%;top:73%;animation-delay:.4s}
+.puja-particles span:nth-child(5){left:49%;top:16%;animation-delay:1.4s}
+.puja-particles span:nth-child(6){left:60%;top:67%;animation-delay:.8s}
+.puja-particles span:nth-child(7){left:72%;top:24%;animation-delay:.2s}
+.puja-particles span:nth-child(8){left:82%;top:58%;animation-delay:1s}
+.puja-particles span:nth-child(9){left:91%;top:35%;animation-delay:.5s}
+.puja-particles span:nth-child(10){left:12%;top:82%;animation-delay:1.5s}
+.puja-particles span:nth-child(11){left:88%;top:78%;animation-delay:.3s}
+.puja-particles span:nth-child(12){left:55%;top:88%;animation-delay:1.2s}
 
 .welcome-content{
   position:relative;
-
   z-index:16;
 
   width:100%;
@@ -426,19 +321,14 @@ body{
 
   display:flex;
   flex-direction:column;
-
   align-items:center;
   justify-content:center;
 
-  text-shadow:
-    0 3px 10px rgba(0,0,0,.98);
+  text-shadow:0 3px 10px rgba(0,0,0,.98);
 }
-
-/* Bengali */
 
 .welcome-bengali{
   font-size:clamp(25px,7vw,58px);
-
   font-weight:900;
 
   color:#fff1b0;
@@ -455,8 +345,6 @@ body{
   animation:
     bigReveal .9s cubic-bezier(.16,1,.3,1) .25s forwards;
 }
-
-/* Welcome */
 
 .welcome-small{
   margin-top:10px;
@@ -475,11 +363,8 @@ body{
 
   opacity:0;
 
-  animation:
-    textReveal .8s ease .55s forwards;
+  animation:textReveal .8s ease .55s forwards;
 }
-
-/* HUGE SHOP NAME */
 
 .welcome-title{
   width:100%;
@@ -508,15 +393,11 @@ body{
 
   transform:scale(.78);
 
-  animation:
-    hugeTitle 1.05s cubic-bezier(.16,1,.3,1) .75s forwards;
+  animation:hugeTitle 1.05s cubic-bezier(.16,1,.3,1) .75s forwards;
 }
-
-/* Golden separator */
 
 .welcome-line{
   width:0;
-
   height:4px;
 
   margin:20px auto 15px;
@@ -537,11 +418,8 @@ body{
     0 0 12px #ff9d2e,
     0 0 28px rgba(255,120,0,.8);
 
-  animation:
-    lineReveal 1s ease 1.45s forwards;
+  animation:lineReveal 1s ease 1.45s forwards;
 }
-
-/* Blessing */
 
 .welcome-blessing{
   max-width:850px;
@@ -562,11 +440,8 @@ body{
 
   opacity:0;
 
-  animation:
-    textReveal .8s ease 1.55s forwards;
+  animation:textReveal .8s ease 1.55s forwards;
 }
-
-/* Tagline */
 
 .welcome-tagline{
   margin-top:12px;
@@ -577,18 +452,12 @@ body{
 
   color:rgba(255,255,255,.92);
 
-  text-shadow:
-    0 2px 5px rgba(0,0,0,1);
+  text-shadow:0 2px 5px rgba(0,0,0,1);
 
   opacity:0;
 
-  animation:
-    textReveal .8s ease 1.7s forwards;
+  animation:textReveal .8s ease 1.7s forwards;
 }
-
-/* =====================================================
-   DIYA
-===================================================== */
 
 .diya{
   position:absolute;
@@ -649,207 +518,133 @@ body{
 ===================================================== */
 
 @keyframes durgaZoom{
-
-  from{
-    transform:scale(1.03);
-  }
-
-  to{
-    transform:scale(1.10);
-  }
-
+  from{transform:scale(1.03)}
+  to{transform:scale(1.10)}
 }
 
 @keyframes welcomeOut{
-
-  0%{
-    opacity:1;
-    transform:scale(1);
-  }
-
-  55%{
-    opacity:1;
-    transform:scale(1.02);
-  }
-
+  0%{opacity:1;transform:scale(1)}
+  55%{opacity:1;transform:scale(1.02)}
   100%{
     opacity:0;
     transform:scale(1.08);
     visibility:hidden;
   }
-
 }
 
 @keyframes pujaGlow{
-
-  0%,100%{
-    transform:scale(.98);
-    opacity:.65;
-  }
-
-  50%{
-    transform:scale(1.04);
-    opacity:1;
-  }
-
+  0%,100%{transform:scale(.98);opacity:.65}
+  50%{transform:scale(1.04);opacity:1}
 }
 
 @keyframes bigReveal{
-
   from{
     opacity:0;
     transform:translateY(25px) scale(.8);
     filter:blur(8px);
   }
-
   to{
     opacity:1;
     transform:translateY(0) scale(1);
     filter:blur(0);
   }
-
 }
 
 @keyframes hugeTitle{
-
   from{
     opacity:0;
     transform:scale(.72);
     filter:blur(12px);
   }
-
   to{
     opacity:1;
     transform:scale(1);
     filter:blur(0);
   }
-
 }
 
 @keyframes textReveal{
-
   from{
     opacity:0;
     transform:translateY(15px);
   }
-
   to{
     opacity:1;
     transform:translateY(0);
   }
-
 }
 
 @keyframes lineReveal{
-
   from{
     width:0;
     opacity:0;
   }
-
   to{
     width:min(500px,75vw);
     opacity:1;
   }
-
 }
 
 @keyframes goldFloat{
-
   0%{
     opacity:0;
     transform:translateY(20px) scale(.5);
   }
-
-  35%{
-    opacity:1;
-  }
-
+  35%{opacity:1}
   100%{
     opacity:0;
     transform:translateY(-55px) scale(1.5);
   }
-
 }
 
 @keyframes diyaReveal{
-
   from{
     opacity:0;
     transform:translateX(-50%) translateY(30px) scale(.5);
   }
-
   to{
     opacity:1;
     transform:translateX(-50%) translateY(0) scale(1);
   }
-
 }
 
 @keyframes diyaGlow{
-
   0%,100%{
     filter:
       drop-shadow(0 0 8px #ffcf6a)
       drop-shadow(0 0 18px #ff6500);
   }
-
   50%{
     filter:
       drop-shadow(0 0 15px #fff0a0)
       drop-shadow(0 0 40px #ff6500);
   }
-
 }
 
 @keyframes flame{
-
-  0%,100%{
-    transform:translateX(-50%) scale(1);
-  }
-
-  50%{
-    transform:translateX(-50%) scale(1.15,.9);
-  }
-
+  0%,100%{transform:translateX(-50%) scale(1)}
+  50%{transform:translateX(-50%) scale(1.15,.9)}
 }
 
 @keyframes flowerFloat{
-
-  0%,100%{
-    transform:translateY(0);
-  }
-
-  50%{
-    transform:translateY(5px);
-  }
-
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(5px)}
 }
 
 @keyframes decorReveal{
-
   from{
     opacity:0;
     transform:translateY(-20px);
   }
-
   to{
     opacity:1;
     transform:translateY(0);
   }
-
 }
 
 @keyframes sideFloat{
-
-  0%,100%{
-    transform:translateY(-50%);
-  }
-
-  50%{
-    transform:translateY(calc(-50% - 8px));
-  }
-
+  0%,100%{transform:translateY(-50%)}
+  50%{transform:translateY(calc(-50% - 8px))}
 }
 
 
@@ -904,12 +699,10 @@ header:after{
 
 .brand{
   display:flex;
-
   justify-content:center;
   align-items:center;
 
   gap:10px;
-
   margin-bottom:14px;
 }
 
@@ -918,7 +711,6 @@ header:after{
   height:45px;
 
   display:flex;
-
   align-items:center;
   justify-content:center;
 
@@ -950,10 +742,6 @@ header h1{
   margin-top:3px;
   letter-spacing:1px;
 }
-
-/* =====================================================
-   SEARCH
-===================================================== */
 
 .search-box{
   max-width:650px;
@@ -995,19 +783,13 @@ header h1{
   z-index:2;
 }
 
-/* =====================================================
-   TOP BUTTONS
-===================================================== */
-
 .top-buttons{
   margin-top:14px;
 
   display:flex;
-
   justify-content:center;
 
   gap:10px;
-
   flex-wrap:wrap;
 }
 
@@ -1019,7 +801,6 @@ header h1{
   color:white;
 
   font-weight:bold;
-
   font-size:13px;
 
   transition:.2s;
@@ -1057,8 +838,9 @@ header h1{
     inset 1px 1px 2px rgba(255,255,255,.3);
 }
 
+
 /* =====================================================
-   CATEGORY BAR
+   CATEGORY
 ===================================================== */
 
 .categories{
@@ -1128,6 +910,7 @@ header h1{
     5px 6px 12px rgba(143,53,0,.28),
     inset 1px 1px 2px rgba(255,255,255,.3);
 }
+
 
 /* =====================================================
    PRODUCTS
@@ -1272,16 +1055,30 @@ header h1{
   margin-bottom:9px;
 }
 
+/* =====================================================
+   MULTIPLE RATE DISPLAY
+===================================================== */
+
 .price{
+  display:flex;
+
+  flex-wrap:wrap;
+
+  gap:6px;
+
+  margin-bottom:12px;
+}
+
+.rate-item{
   display:inline-block;
 
   color:white;
 
-  font-size:18px;
+  font-size:16px;
 
   font-weight:bold;
 
-  padding:6px 10px;
+  padding:6px 9px;
 
   border-radius:10px;
 
@@ -1295,8 +1092,6 @@ header h1{
   box-shadow:
     3px 4px 8px rgba(143,53,0,.22),
     inset 1px 1px 2px rgba(255,255,255,.3);
-
-  margin-bottom:12px;
 }
 
 .details-btn{
@@ -1330,10 +1125,6 @@ header h1{
   transform:translateY(2px);
 }
 
-/* =====================================================
-   EMPTY
-===================================================== */
-
 .empty{
   grid-column:1/-1;
 
@@ -1345,6 +1136,7 @@ header h1{
 
   font-weight:bold;
 }
+
 
 /* =====================================================
    MODALS
@@ -1402,17 +1194,14 @@ header h1{
 }
 
 @keyframes modalIn{
-
   from{
     opacity:0;
     transform:translateY(20px) scale(.95);
   }
-
   to{
     opacity:1;
     transform:translateY(0) scale(1);
   }
-
 }
 
 .close{
@@ -1451,6 +1240,7 @@ header h1{
   text-shadow:
     1px 2px 2px rgba(0,0,0,.08);
 }
+
 
 /* =====================================================
    FORMS
@@ -1502,8 +1292,26 @@ header h1{
 
 .modal-box textarea{
   min-height:90px;
-
   resize:vertical;
+}
+
+/* RATE INPUT */
+
+#productPrice{
+  font-size:16px;
+  font-weight:bold;
+}
+
+.rate-note{
+  display:block;
+
+  margin-top:-6px;
+  margin-bottom:10px;
+
+  color:#876f60;
+
+  font-size:11px;
+  line-height:1.4;
 }
 
 .submit-btn,
@@ -1554,6 +1362,7 @@ header h1{
     );
 }
 
+
 /* =====================================================
    CUSTOM TYPE
 ===================================================== */
@@ -1581,6 +1390,7 @@ header h1{
 
   margin-bottom:5px;
 }
+
 
 /* =====================================================
    DETAILS
@@ -1615,6 +1425,38 @@ header h1{
   color:#65331d;
 }
 
+.details-rates{
+  display:flex;
+
+  flex-wrap:wrap;
+
+  gap:7px;
+
+  margin-top:6px;
+}
+
+.detail-rate{
+  display:inline-block;
+
+  padding:7px 10px;
+
+  border-radius:10px;
+
+  color:white;
+
+  font-weight:bold;
+
+  background:
+    linear-gradient(
+      145deg,
+      #ff9d2e,
+      #c94d00
+    );
+
+  box-shadow:
+    3px 4px 8px rgba(143,53,0,.18);
+}
+
 .wa-btn{
   width:100%;
 
@@ -1642,8 +1484,9 @@ header h1{
   border:none;
 }
 
+
 /* =====================================================
-   WHATSAPP OPTIONS
+   WHATSAPP
 ===================================================== */
 
 .wa-option{
@@ -1681,6 +1524,7 @@ header h1{
     );
 }
 
+
 /* =====================================================
    ADMIN PRODUCT LIST
 ===================================================== */
@@ -1714,6 +1558,7 @@ header h1{
 
 .admin-product-info{
   flex:1;
+  min-width:0;
 }
 
 .admin-product-info strong{
@@ -1726,11 +1571,20 @@ header h1{
 
 .admin-product-info small{
   color:#806958;
+
+  display:block;
+
+  line-height:1.4;
+}
+
+.admin-rates{
+  color:#9d3200;
+
+  font-weight:bold;
 }
 
 .admin-actions{
   display:flex;
-
   gap:5px;
 }
 
@@ -1756,6 +1610,7 @@ header h1{
 .delete-btn{
   background:#c62828;
 }
+
 
 /* =====================================================
    FLOATING WHATSAPP
@@ -1794,23 +1649,16 @@ header h1{
     7px 9px 18px rgba(0,80,30,.3),
     inset 2px 2px 4px rgba(255,255,255,.35);
 
-  animation:
-    float 2.4s infinite ease-in-out;
+  animation:float 2.4s infinite ease-in-out;
 
   border:none;
 }
 
 @keyframes float{
-
-  0%,100%{
-    transform:translateY(0)
-  }
-
-  50%{
-    transform:translateY(-5px)
-  }
-
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-5px)}
 }
+
 
 /* =====================================================
    MOBILE
@@ -1819,7 +1667,6 @@ header h1{
 @media(max-width:600px){
 
   #welcomeScreen .durga-background{
-
     background:
       linear-gradient(
         180deg,
@@ -1829,7 +1676,6 @@ header h1{
       ),
       url("durga-welcome.jpg")
       center center / cover no-repeat;
-
   }
 
   #welcomeScreen:after{
@@ -1974,8 +1820,8 @@ header h1{
     font-size:11px;
   }
 
-  .price{
-    font-size:15px;
+  .rate-item{
+    font-size:13px;
     padding:5px 7px;
   }
 
@@ -2008,7 +1854,6 @@ header h1{
 
 <div id="welcomeScreen">
 
-  <!-- ACTUAL MAA DURGA IMAGE -->
   <div class="durga-background"></div>
 
   <div class="cinematic-overlay"></div>
@@ -2032,11 +1877,8 @@ header h1{
   <div class="pandal">
 
     <div class="pandal-roof"></div>
-
     <div class="pandal-body"></div>
-
     <div class="pandal-column one"></div>
-
     <div class="pandal-column two"></div>
 
   </div>
@@ -2048,7 +1890,6 @@ header h1{
   </div>
 
   <div class="puja-particles">
-
     <span></span>
     <span></span>
     <span></span>
@@ -2061,7 +1902,6 @@ header h1{
     <span></span>
     <span></span>
     <span></span>
-
   </div>
 
   <div class="welcome-content">
@@ -2246,13 +2086,17 @@ header h1{
       class="details-img"
     >
 
-    <h2
-      id="detailsName"
-    ></h2>
+    <h2 id="detailsName"></h2>
 
     <div class="detail-row">
+
       <b>Price:</b>
-      ₹<span id="detailsPrice"></span>
+
+      <div
+        id="detailsPrice"
+        class="details-rates"
+      ></div>
+
     </div>
 
     <div class="detail-row">
@@ -2437,15 +2281,26 @@ header h1{
       placeholder="Paste image URL"
     >
 
+    <!-- =================================================
+         MULTIPLE RATE FIELD
+    ================================================== -->
+
     <label class="form-label">
       Price / Rate
     </label>
 
     <input
       id="productPrice"
-      type="number"
-      placeholder="Price"
+      type="text"
+      inputmode="decimal"
+      placeholder="Example: 450,420,560,870"
     >
+
+    <div class="rate-note">
+      একাধিক Rate দিতে হলে কমা (,) দিয়ে লিখুন।<br>
+      Example: <b>450,420,560,870</b>
+    </div>
+
 
     <label class="form-label">
       Product Type
@@ -2486,7 +2341,7 @@ header h1{
 
       <input
         id="customProductType"
-        placeholder="Example: Grocery, Cosmetic, Food..."
+        placeholder="Example: Poultry Drinker"
       >
 
       <div class="custom-type-note">
@@ -2871,6 +2726,57 @@ async function loadProducts(){
 
 
 /* =====================================================
+   RATE HELPER
+===================================================== */
+
+function getRates(value){
+
+  if(value === undefined || value === null){
+
+    return [];
+
+  }
+
+  return String(value)
+
+    .split(",")
+
+    .map(rate=>rate.trim())
+
+    .filter(rate=>rate !== "");
+
+}
+
+
+/* =====================================================
+   RENDER RATE HTML
+===================================================== */
+
+function renderRates(value){
+
+  const rates =
+    getRates(value);
+
+  if(rates.length === 0){
+
+    return "";
+
+  }
+
+  return rates.map(rate=>{
+
+    return `
+      <span class="rate-item">
+        ₹${escapeHTML(rate)}
+      </span>
+    `;
+
+  }).join("");
+
+}
+
+
+/* =====================================================
    RENDER PRODUCTS
 ===================================================== */
 
@@ -3001,11 +2907,7 @@ window.renderProducts = function(){
             </div>
 
             <div class="price">
-              ₹${escapeHTML(
-                String(
-                  product.price || ""
-                )
-              )}
+              ${renderRates(product.price)}
             </div>
 
             <button
@@ -3088,8 +2990,8 @@ function(id){
 
   document.getElementById(
     "detailsPrice"
-  ).textContent =
-    product.price || "";
+  ).innerHTML =
+    renderDetailRates(product.price);
 
   document.getElementById(
     "detailsType"
@@ -3127,6 +3029,34 @@ function(id){
     "flex";
 
 };
+
+
+/* =====================================================
+   DETAILS RATE
+===================================================== */
+
+function renderDetailRates(value){
+
+  const rates =
+    getRates(value);
+
+  if(rates.length === 0){
+
+    return "—";
+
+  }
+
+  return rates.map(rate=>{
+
+    return `
+      <span class="detail-rate">
+        ₹${escapeHTML(rate)}
+      </span>
+    `;
+
+  }).join("");
+
+}
 
 
 /* =====================================================
@@ -3176,7 +3106,7 @@ function(number){
 This product is available:
 
 Product Name: ${p.name || ""}
-Price: ₹${p.price || ""}
+Price / Rates: ₹${p.price || ""}
 Type: ${p.type || ""}
 Company: ${p.company || ""}
 Pack Size: ${p.pack || ""}
@@ -3313,13 +3243,22 @@ async function(){
   const productData = {
 
     name:name,
+
     image:image,
+
+    /* MULTIPLE RATE SAVED AS STRING */
     price:price,
+
     type:finalType,
+
     company:company,
+
     pack:pack,
+
     stock:stock,
+
     code:code,
+
     description:description
 
   };
@@ -3433,11 +3372,10 @@ function renderAdminProducts(){
               ${escapeHTML(
                 product.type || ""
               )}
-              • ₹${escapeHTML(
-                String(
-                  product.price || ""
-                )
-              )}
+            </small>
+
+            <small class="admin-rates">
+              ${formatAdminRates(product.price)}
             </small>
 
           </div>
@@ -3465,6 +3403,28 @@ function renderAdminProducts(){
       `;
 
     }).join("");
+
+}
+
+
+/* =====================================================
+   ADMIN RATE DISPLAY
+===================================================== */
+
+function formatAdminRates(value){
+
+  const rates =
+    getRates(value);
+
+  if(rates.length === 0){
+
+    return "Rate not set";
+
+  }
+
+  return rates
+    .map(rate=>"₹"+escapeHTML(rate))
+    .join(" • ");
 
 }
 
@@ -3499,6 +3459,10 @@ function(id){
   ).value =
     product.image || "";
 
+  /*
+    Existing old price/rate data
+    will also load normally.
+  */
   document.getElementById(
     "productPrice"
   ).value =
