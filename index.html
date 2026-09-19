@@ -2325,6 +2325,18 @@ let selectedCategory = "All";
 
 let editingProductId = null;
 
+/*
+IMPORTANT:
+
+Firebase remembers a previously logged-in admin.
+
+This variable makes sure the Admin Panel opens
+ONLY after the user intentionally presses the
+Admin button or successfully logs in.
+*/
+
+let adminRequested = false;
+
 
 /* ==================================================
 ESCAPE HTML
@@ -3019,6 +3031,53 @@ LOGIN
 window.openLogin =
 function(){
 
+  /*
+  User intentionally pressed Admin.
+  From this point Firebase auth is allowed
+  to open the Admin Panel.
+  */
+
+  adminRequested = true;
+
+
+  const currentUser =
+    auth.currentUser;
+
+
+  /*
+  If Firebase already remembers the admin login,
+  open Admin Panel immediately after pressing
+  the Admin button.
+  */
+
+  if(
+    currentUser &&
+    currentUser.uid === ADMIN_UID
+  ){
+
+    document.getElementById(
+      "loginModal"
+    ).style.display =
+      "none";
+
+
+    document.getElementById(
+      "adminModal"
+    ).style.display =
+      "block";
+
+
+    renderAdminProducts();
+
+    return;
+
+  }
+
+
+  /*
+  Otherwise show Login.
+  */
+
   document.getElementById(
     "loginModal"
   ).style.display =
@@ -3056,6 +3115,13 @@ async function(){
   }
 
 
+  /*
+  User is intentionally trying to login.
+  */
+
+  adminRequested = true;
+
+
   try{
 
     await signInWithEmailAndPassword(
@@ -3089,9 +3155,20 @@ onAuthStateChanged(
   auth,
   user => {
 
+    /*
+    IMPORTANT FIX:
+
+    Do NOT automatically open Admin Panel
+    just because Firebase remembers a logged-in user.
+
+    Admin Panel opens only when adminRequested
+    is true.
+    */
+
     if(
       user &&
-      user.uid === ADMIN_UID
+      user.uid === ADMIN_UID &&
+      adminRequested
     ){
 
       document.getElementById(
@@ -3110,7 +3187,10 @@ onAuthStateChanged(
 
     }
 
-    else{
+    else if(
+      !user ||
+      user.uid !== ADMIN_UID
+    ){
 
       document.getElementById(
         "adminModal"
@@ -4025,6 +4105,14 @@ window.logoutAdmin =
 async function(){
 
   try{
+
+    /*
+    After Logout, reset the manual admin request.
+    */
+
+    adminRequested =
+      false;
+
 
     await signOut(auth);
 
