@@ -1,12 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0"
+>
 
 <title>JANAKINATH BHANDER</title>
 
 <style>
+
+/* ==================================================
+GLOBAL
+================================================== */
 
 *{
   box-sizing:border-box;
@@ -20,7 +29,10 @@ body{
   color:#222;
 }
 
-button,input,textarea,select{
+button,
+input,
+textarea,
+select{
   font-family:inherit;
 }
 
@@ -29,41 +41,56 @@ button{
 }
 
 
-/* =========================
-WELCOME
-========================= */
+/* ==================================================
+WELCOME SCREEN
+================================================== */
 
 #welcomeScreen{
   position:fixed;
   inset:0;
   z-index:99999;
+
   overflow:hidden;
+
   display:flex;
   align-items:center;
   justify-content:center;
+
   background:#13070b;
 }
 
 .durga-background{
   position:absolute;
   inset:0;
+
   background:
     linear-gradient(
       rgba(40,0,10,.35),
       rgba(0,0,0,.65)
     ),
-    url("durga-welcome.jpg") center/cover no-repeat;
-  animation:welcomeZoom 8s ease-in-out infinite alternate;
+    url("durga-welcome.jpg")
+    center/cover no-repeat;
+
+  animation:
+    welcomeZoom 8s ease-in-out infinite alternate;
 }
 
 @keyframes welcomeZoom{
-  from{transform:scale(1);}
-  to{transform:scale(1.08);}
+
+  from{
+    transform:scale(1);
+  }
+
+  to{
+    transform:scale(1.08);
+  }
+
 }
 
 .cinematic-overlay{
   position:absolute;
   inset:0;
+
   background:
     radial-gradient(
       circle at center,
@@ -74,30 +101,48 @@ WELCOME
 
 .puja-top{
   position:absolute;
+
   top:25px;
   left:50%;
+
   transform:translateX(-50%);
+
   color:#ffd86b;
+
   font-size:20px;
   font-weight:bold;
+
   text-shadow:
     0 0 10px #ff7b00,
     0 0 25px #ff4500;
+
   white-space:nowrap;
+
+  z-index:5;
 }
 
 .flower-row{
   position:absolute;
+
   top:70px;
+
   width:100%;
+
   text-align:center;
+
   font-size:25px;
+
+  z-index:5;
 }
 
 .side-decor{
   position:absolute;
+
   top:45%;
+
   font-size:55px;
+
+  z-index:4;
 }
 
 .side-left{
@@ -108,57 +153,161 @@ WELCOME
   right:5%;
 }
 
+
+/* ==================================================
+FALLING FLOWERS
+================================================== */
+
+.falling-flowers{
+  position:absolute;
+  inset:0;
+
+  overflow:hidden;
+
+  pointer-events:none;
+
+  z-index:6;
+}
+
+.falling-flower{
+  position:absolute;
+
+  top:-70px;
+
+  user-select:none;
+
+  pointer-events:none;
+
+  will-change:
+    transform,
+    opacity;
+
+  animation:
+    flowerFall
+    linear
+    infinite;
+}
+
+@keyframes flowerFall{
+
+  0%{
+    transform:
+      translate3d(0,-70px,0)
+      rotate(0deg);
+
+    opacity:0;
+  }
+
+  8%{
+    opacity:1;
+  }
+
+  25%{
+    transform:
+      translate3d(35px,25vh,0)
+      rotate(90deg);
+  }
+
+  50%{
+    transform:
+      translate3d(-45px,52vh,0)
+      rotate(180deg);
+  }
+
+  75%{
+    transform:
+      translate3d(55px,78vh,0)
+      rotate(270deg);
+  }
+
+  100%{
+    transform:
+      translate3d(-60px,115vh,0)
+      rotate(360deg);
+
+    opacity:.15;
+  }
+
+}
+
+
+/* ==================================================
+PANDAL
+================================================== */
+
 .pandal{
   position:absolute;
+
   bottom:0;
   left:50%;
+
   transform:translateX(-50%);
+
   width:90%;
   max-width:650px;
+
   height:55%;
+
   opacity:.55;
+
+  z-index:2;
 }
 
 .pandal-roof{
   position:absolute;
+
   top:0;
   left:5%;
+
   width:90%;
   height:100px;
-  background:linear-gradient(
-    135deg,
-    #8d1d26,
-    #e19a2d,
-    #8d1d26
-  );
-  clip-path:polygon(
-    50% 0,
-    100% 100%,
-    0 100%
-  );
+
+  background:
+    linear-gradient(
+      135deg,
+      #8d1d26,
+      #e19a2d,
+      #8d1d26
+    );
+
+  clip-path:
+    polygon(
+      50% 0,
+      100% 100%,
+      0 100%
+    );
 }
 
 .pandal-body{
   position:absolute;
+
   top:70px;
   left:15%;
+
   width:70%;
   height:70%;
+
   border:5px solid #d6a436;
-  background:rgba(80,10,20,.35);
+
+  background:
+    rgba(80,10,20,.35);
 }
 
 .pandal-column{
   position:absolute;
+
   bottom:0;
+
   width:45px;
   height:70%;
-  background:linear-gradient(
-    90deg,
-    #8d1d26,
-    #e3a72f,
-    #8d1d26
-  );
+
+  background:
+    linear-gradient(
+      90deg,
+      #8d1d26,
+      #e3a72f,
+      #8d1d26
+    );
 }
 
 .pandal-column.one{
@@ -169,60 +318,101 @@ WELCOME
   right:15%;
 }
 
+
+/* ==================================================
+DIYA
+================================================== */
+
 .diya{
   position:absolute;
+
   bottom:55px;
   left:50%;
+
   transform:translateX(-50%);
+
   font-size:45px;
-  filter:drop-shadow(
-    0 0 15px orange
-  );
+
+  filter:
+    drop-shadow(
+      0 0 15px orange
+    );
+
+  z-index:7;
 }
 
 .diya-flame{
   position:absolute;
+
   bottom:90px;
   left:50%;
+
   width:18px;
   height:32px;
+
   transform:translateX(-50%);
+
   background:#ffd34e;
+
   border-radius:50%;
+
   box-shadow:
     0 0 20px #ff8c00,
     0 0 40px #ff4500;
+
+  z-index:7;
 }
+
+
+/* ==================================================
+WELCOME CONTENT
+================================================== */
 
 .welcome-content{
   position:relative;
-  z-index:2;
+
+  z-index:10;
+
   text-align:center;
+
   color:white;
+
   width:95%;
   max-width:700px;
 }
 
 .welcome-bengali{
   color:#ffd35a;
+
   font-size:25px;
+
   font-weight:bold;
+
   margin-bottom:10px;
-  text-shadow:0 0 15px #ff6500;
+
+  text-shadow:
+    0 0 15px #ff6500;
 }
 
 .welcome-small{
   font-size:14px;
+
   letter-spacing:6px;
 }
 
 .welcome-title{
   margin-top:10px;
+
   font-size:55px;
+
   line-height:1.05;
+
   font-weight:900;
+
   letter-spacing:4px;
+
   color:#fff;
+
   text-shadow:
     0 0 10px #ff9c00,
     0 0 25px #ff4500,
@@ -231,34 +421,44 @@ WELCOME
 
 .welcome-line{
   width:180px;
+
   height:3px;
+
   margin:20px auto;
+
   background:#ffc94d;
 }
 
 .welcome-blessing{
   font-size:15px;
+
   color:#ffe9a7;
+
   margin-bottom:15px;
 }
 
 .welcome-tagline{
   font-size:11px;
+
   letter-spacing:4px;
 }
 
 
-/* =========================
+/* ==================================================
 HEADER
-========================= */
+================================================== */
 
 header{
   position:sticky;
+
   top:0;
+
   z-index:1000;
 
   display:flex;
+
   align-items:center;
+
   gap:15px;
 
   padding:12px 18px;
@@ -278,51 +478,70 @@ header{
 
 .brand{
   display:flex;
+
   align-items:center;
+
   gap:10px;
+
   flex-shrink:0;
 }
 
 .brand-icon{
   width:45px;
   height:45px;
+
   border-radius:12px;
 
   display:flex;
+
   align-items:center;
   justify-content:center;
 
   background:#fff;
+
   font-size:23px;
+
   flex-shrink:0;
 }
 
 .brand h1{
   font-size:20px;
+
   line-height:1;
+
   white-space:nowrap;
 }
 
 .tagline{
   margin-top:5px;
+
   font-size:9px;
+
   letter-spacing:2px;
+
   opacity:.8;
 }
 
 .top-buttons{
   display:flex;
+
   align-items:center;
+
   gap:7px;
+
   margin-left:auto;
 }
 
 .admin-btn,
 .whatsapp-main{
   border:0;
+
   border-radius:9px;
+
   padding:10px 13px;
+
   font-weight:bold;
+
   color:white;
 }
 
@@ -336,63 +555,86 @@ header{
 
 .search-box{
   width:270px;
+
   margin-left:5px;
 }
 
 .search-box input{
   width:100%;
+
   border:0;
+
   outline:none;
+
   border-radius:10px;
+
   padding:11px 14px;
+
   font-size:14px;
 }
 
 
-/* =========================
+/* ==================================================
 CATEGORY
-========================= */
+================================================== */
 
 .categories{
   display:flex;
+
   gap:8px;
+
   overflow-x:auto;
+
   padding:13px 15px;
+
   background:white;
+
   border-bottom:1px solid #eee;
 }
 
 .category-btn{
   flex-shrink:0;
+
   border:1px solid #ddd;
+
   background:white;
+
   border-radius:20px;
+
   padding:8px 15px;
+
   font-weight:bold;
 }
 
 .category-btn.active{
   background:#a51e1e;
+
   color:white;
+
   border-color:#a51e1e;
 }
 
 
-/* =========================
+/* ==================================================
 PRODUCTS
-========================= */
+================================================== */
 
 #products{
   display:grid;
+
   grid-template-columns:
     repeat(4,minmax(0,1fr));
+
   gap:16px;
+
   padding:18px;
 }
 
 .product-card{
   background:white;
+
   border-radius:15px;
+
   overflow:hidden;
 
   box-shadow:
@@ -407,8 +649,11 @@ PRODUCTS
 
 .product-image{
   width:100%;
+
   height:200px;
+
   object-fit:cover;
+
   background:#eee;
 }
 
@@ -418,29 +663,41 @@ PRODUCTS
 
 .product-name{
   font-size:16px;
+
   font-weight:bold;
+
   margin-bottom:6px;
 }
 
 .product-company{
   color:#777;
+
   font-size:12px;
+
   margin-bottom:10px;
 }
 
 .price{
   display:flex;
+
   flex-wrap:wrap;
+
   gap:6px;
+
   margin-bottom:12px;
 }
 
 .rate-item{
   display:inline-block;
+
   color:white;
+
   font-size:16px;
+
   font-weight:bold;
+
   padding:6px 9px;
+
   border-radius:10px;
 
   background:
@@ -451,35 +708,83 @@ PRODUCTS
     );
 }
 
+
+/* ==================================================
+STOCK STATUS
+================================================== */
+
+.stock-status{
+  display:inline-block;
+
+  margin-bottom:10px;
+
+  padding:5px 10px;
+
+  border-radius:20px;
+
+  font-size:11px;
+
+  font-weight:900;
+
+  letter-spacing:.5px;
+}
+
+.stock-available{
+  color:#087f23;
+
+  background:#d9f8df;
+
+  border:1px solid #71d884;
+}
+
+.stock-not-available{
+  color:#c51616;
+
+  background:#ffe0e0;
+
+  border:1px solid #ef7777;
+}
+
 .view-btn{
   width:100%;
+
   border:0;
+
   border-radius:9px;
+
   padding:10px;
+
   background:#a51e1e;
+
   color:white;
+
   font-weight:bold;
 }
 
 
-/* =========================
+/* ==================================================
 WHATSAPP FLOAT
-========================= */
+================================================== */
 
 .floating-whatsapp{
   position:fixed;
+
   right:18px;
   bottom:18px;
+
   z-index:5000;
 
   width:55px;
   height:55px;
 
   border:0;
+
   border-radius:50%;
 
   background:#25d366;
+
   color:white;
+
   font-size:25px;
 
   box-shadow:
@@ -487,14 +792,15 @@ WHATSAPP FLOAT
 }
 
 
-/* =========================
+/* ==================================================
 MODAL
-========================= */
+================================================== */
 
 .modal{
   display:none;
 
   position:fixed;
+
   inset:0;
 
   z-index:10000;
@@ -510,6 +816,7 @@ MODAL
   position:relative;
 
   width:100%;
+
   max-width:600px;
 
   margin:30px auto;
@@ -526,12 +833,15 @@ MODAL
 
 .modal-title{
   font-size:22px;
+
   font-weight:bold;
+
   margin-bottom:15px;
 }
 
 .close-btn{
   position:absolute;
+
   top:10px;
   right:12px;
 
@@ -553,8 +863,11 @@ MODAL
 
 .form-label{
   display:block;
+
   font-weight:bold;
+
   font-size:13px;
+
   margin-bottom:5px;
 }
 
@@ -572,8 +885,18 @@ MODAL
   outline:none;
 }
 
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus{
+  border-color:#a51e1e;
+
+  box-shadow:
+    0 0 0 2px rgba(165,30,30,.08);
+}
+
 .form-textarea{
   min-height:90px;
+
   resize:vertical;
 }
 
@@ -629,17 +952,20 @@ MODAL
 
 .rate-note{
   margin-top:5px;
+
   font-size:11px;
+
   color:#777;
 }
 
 
-/* =========================
+/* ==================================================
 DETAILS
-========================= */
+================================================== */
 
 .details-image{
   width:100%;
+
   max-height:300px;
 
   object-fit:contain;
@@ -653,12 +979,15 @@ DETAILS
 
 .details-name{
   font-size:23px;
+
   font-weight:bold;
+
   margin-bottom:10px;
 }
 
 .detail-row{
   display:flex;
+
   gap:8px;
 
   padding:9px 0;
@@ -668,9 +997,15 @@ DETAILS
   font-size:14px;
 }
 
+.detail-row b{
+  flex-shrink:0;
+}
+
 .details-rates{
   display:flex;
+
   flex-wrap:wrap;
+
   gap:5px;
 }
 
@@ -688,10 +1023,22 @@ DETAILS
   font-weight:bold;
 }
 
+.detail-stock{
+  display:inline-block;
 
-/* =========================
+  padding:5px 9px;
+
+  border-radius:20px;
+
+  font-weight:900;
+
+  font-size:12px;
+}
+
+
+/* ==================================================
 WHATSAPP MODAL
-========================= */
+================================================== */
 
 .whatsapp-option{
   width:100%;
@@ -714,19 +1061,23 @@ WHATSAPP MODAL
 }
 
 
-/* =========================
+/* ==================================================
 ADMIN LIST
-========================= */
+================================================== */
 
 .admin-section{
   margin-top:20px;
+
   padding-top:15px;
+
   border-top:1px solid #eee;
 }
 
 .admin-section-title{
   font-size:18px;
+
   font-weight:bold;
+
   margin-bottom:10px;
 }
 
@@ -744,27 +1095,52 @@ ADMIN LIST
 
 .admin-product-info{
   flex:1;
+
   min-width:0;
 }
 
 .admin-product-name{
   font-weight:bold;
+
+  word-break:break-word;
 }
 
 .admin-product-rate{
   font-size:12px;
+
   color:#777;
+
   margin-top:4px;
+}
+
+.admin-product-stock{
+  font-size:11px;
+
+  font-weight:bold;
+
+  margin-top:4px;
+}
+
+.admin-stock-yes{
+  color:#0a8a25;
+}
+
+.admin-stock-no{
+  color:#d01818;
 }
 
 .admin-actions{
   display:flex;
+
   gap:6px;
+
+  flex-shrink:0;
 }
 
 .edit-btn,
 .delete-btn{
   border:0;
+
   border-radius:7px;
 
   padding:8px 10px;
@@ -784,6 +1160,12 @@ ADMIN LIST
   background:#d62828;
 }
 
+.edit-btn:active,
+.delete-btn:active,
+.save-btn:active{
+  transform:scale(.97);
+}
+
 .loading{
   grid-column:1/-1;
 
@@ -795,24 +1177,30 @@ ADMIN LIST
 }
 
 
-/* =========================
+/* ==================================================
 EDIT MODE
-========================= */
+================================================== */
 
 .edit-mode{
   background:#fff4d6;
+
   border:2px solid #ffb300;
+
   padding:10px;
+
   border-radius:10px;
+
   margin-bottom:12px;
+
   font-size:13px;
+
   font-weight:bold;
 }
 
 
-/* =========================
+/* ==================================================
 MOBILE
-========================= */
+================================================== */
 
 @media(max-width:700px){
 
@@ -828,12 +1216,16 @@ MOBILE
 
   .brand{
     width:100%;
+
     min-width:0;
 
     display:flex;
 
     align-items:center;
+
     justify-content:center;
+
+    overflow:visible;
   }
 
   .brand-icon{
@@ -846,11 +1238,12 @@ MOBILE
   }
 
   .brand h1{
-    font-size:clamp(
-      13px,
-      4.7vw,
-      18px
-    );
+    font-size:
+      clamp(
+        13px,
+        4.7vw,
+        18px
+      );
 
     white-space:nowrap;
 
@@ -863,6 +1256,7 @@ MOBILE
 
   .tagline{
     font-size:8px;
+
     letter-spacing:1.5px;
   }
 
@@ -881,18 +1275,23 @@ MOBILE
   .admin-btn,
   .whatsapp-main{
     padding:9px 13px;
+
     font-size:11px;
+
     white-space:nowrap;
   }
 
   .search-box{
     width:100%;
+
     margin:0;
   }
 
   .search-box input{
     width:100%;
+
     padding:11px 13px;
+
     font-size:13px;
   }
 
@@ -927,16 +1326,25 @@ MOBILE
 
   .rate-item{
     font-size:13px;
+
     padding:5px 7px;
+  }
+
+  .stock-status{
+    font-size:9px;
+
+    padding:4px 7px;
   }
 
   .view-btn{
     padding:9px;
+
     font-size:12px;
   }
 
   .welcome-title{
     font-size:34px;
+
     letter-spacing:2px;
   }
 
@@ -954,27 +1362,45 @@ MOBILE
 
   .modal-box{
     margin:15px auto;
+
     padding:15px;
   }
 
+  .admin-product{
+    align-items:flex-start;
+  }
+
+  .admin-actions{
+    flex-direction:column;
+  }
+
+  .edit-btn,
+  .delete-btn{
+    min-width:65px;
+  }
+
 }
+
 
 @media(max-width:390px){
 
   .brand h1{
     font-size:15px;
+
     letter-spacing:0;
   }
 
   .brand-icon{
     width:34px;
     height:34px;
+
     font-size:17px;
   }
 
   .admin-btn,
   .whatsapp-main{
     padding:8px 11px;
+
     font-size:10px;
   }
 
@@ -984,8 +1410,53 @@ MOBILE
 
 }
 
+
+/* ==================================================
+VERY SMALL MOBILE
+================================================== */
+
+@media(max-width:350px){
+
+  .brand h1{
+    font-size:14px;
+  }
+
+  .brand-icon{
+    width:32px;
+    height:32px;
+
+    font-size:16px;
+  }
+
+  .top-buttons{
+    gap:5px;
+  }
+
+  .admin-btn,
+  .whatsapp-main{
+    padding:8px 9px;
+
+    font-size:9px;
+  }
+
+}
+
+
+/* ==================================================
+FLOWER MOBILE
+================================================== */
+
+@media(max-width:700px){
+
+  .falling-flower{
+    font-size:18px;
+  }
+
+}
+
 </style>
 </head>
+
 
 <body>
 
@@ -1006,6 +1477,13 @@ WELCOME SCREEN
 
   <div class="flower-row">
     🌺　🌸　🌼　🌸　🌺
+  </div>
+
+  <!-- FALLING FLOWERS -->
+
+  <div
+    class="falling-flowers"
+    id="fallingFlowers">
   </div>
 
   <div class="side-decor side-left">
@@ -1094,15 +1572,21 @@ HEADER
   <div class="top-buttons">
 
     <button
+      type="button"
       class="admin-btn"
       onclick="openLogin()">
+
       🔐 Admin
+
     </button>
 
     <button
+      type="button"
       class="whatsapp-main"
       onclick="openWhatsAppOptions()">
+
       💬 WhatsApp
+
     </button>
 
   </div>
@@ -1128,39 +1612,57 @@ CATEGORIES
 <div class="categories">
 
   <button
+    type="button"
     class="category-btn active"
     onclick="setCategory('All',this)">
+
     All
+
   </button>
 
   <button
+    type="button"
     class="category-btn"
     onclick="setCategory('Medicine',this)">
+
     Medicine
+
   </button>
 
   <button
+    type="button"
     class="category-btn"
     onclick="setCategory('Syrup',this)">
+
     Syrup
+
   </button>
 
   <button
+    type="button"
     class="category-btn"
     onclick="setCategory('Tablet',this)">
+
     Tablet
+
   </button>
 
   <button
+    type="button"
     class="category-btn"
     onclick="setCategory('Capsule',this)">
+
     Capsule
+
   </button>
 
   <button
+    type="button"
     class="category-btn"
     onclick="setCategory('Others',this)">
+
     Others
+
   </button>
 
 </div>
@@ -1184,9 +1686,12 @@ FLOATING WHATSAPP
 ================================================== -->
 
 <button
+  type="button"
   class="floating-whatsapp"
   onclick="openWhatsAppOptions()">
+
   💬
+
 </button>
 
 
@@ -1201,9 +1706,12 @@ DETAILS MODAL
   <div class="modal-box">
 
     <button
+      type="button"
       class="close-btn"
       onclick="closeModal('detailsModal')">
+
       ×
+
     </button>
 
     <img
@@ -1217,6 +1725,7 @@ DETAILS MODAL
       class="details-name">
     </div>
 
+
     <div class="detail-row">
 
       <b>Price:</b>
@@ -1228,43 +1737,72 @@ DETAILS MODAL
 
     </div>
 
-    <div class="detail-row">
-      <b>Type:</b>
-      <span id="detailsType"></span>
-    </div>
 
     <div class="detail-row">
-      <b>Company:</b>
-      <span id="detailsCompany"></span>
-    </div>
 
-    <div class="detail-row">
-      <b>Pack Size:</b>
-      <span id="detailsPack"></span>
-    </div>
+      <b>Availability:</b>
 
-    <div class="detail-row">
-      <b>Stock:</b>
       <span id="detailsStock"></span>
+
     </div>
 
+
     <div class="detail-row">
+
+      <b>Type:</b>
+
+      <span id="detailsType"></span>
+
+    </div>
+
+
+    <div class="detail-row">
+
+      <b>Company:</b>
+
+      <span id="detailsCompany"></span>
+
+    </div>
+
+
+    <div class="detail-row">
+
+      <b>Pack Size:</b>
+
+      <span id="detailsPack"></span>
+
+    </div>
+
+
+    <div class="detail-row">
+
       <b>Product Code:</b>
+
       <span id="detailsCode"></span>
+
     </div>
 
+
     <div class="detail-row">
+
       <b>Description:</b>
+
       <span id="detailsDescription"></span>
+
     </div>
+
 
     <br>
 
+
     <button
+      type="button"
       class="whatsapp-main"
       style="width:100%;padding:13px;"
       onclick="openWhatsAppOptions()">
+
       💬 WhatsApp Enquiry
+
     </button>
 
   </div>
@@ -1283,9 +1821,12 @@ WHATSAPP MODAL
   <div class="modal-box">
 
     <button
+      type="button"
       class="close-btn"
       onclick="closeModal('whatsappModal')">
+
       ×
+
     </button>
 
     <div class="modal-title">
@@ -1297,15 +1838,21 @@ WHATSAPP MODAL
     </p>
 
     <button
+      type="button"
       class="whatsapp-option"
       onclick="sendWhatsApp('919126270705')">
+
       💬 +91 91262 70705
+
     </button>
 
     <button
+      type="button"
       class="whatsapp-option"
       onclick="sendWhatsApp('918436754431')">
+
       💬 +91 84367 54431
+
     </button>
 
   </div>
@@ -1324,9 +1871,12 @@ LOGIN
   <div class="modal-box">
 
     <button
+      type="button"
       class="close-btn"
       onclick="closeModal('loginModal')">
+
       ×
+
     </button>
 
     <div class="modal-title">
@@ -1362,9 +1912,12 @@ LOGIN
     </div>
 
     <button
+      type="button"
       class="save-btn"
       onclick="loginAdmin()">
+
       Login
+
     </button>
 
   </div>
@@ -1383,17 +1936,18 @@ ADMIN PANEL
   <div class="modal-box">
 
     <button
+      type="button"
       class="close-btn"
       onclick="closeModal('adminModal')">
+
       ×
+
     </button>
 
     <div class="modal-title">
       ⚙️ Admin Panel
     </div>
 
-
-    <!-- EDIT MODE MESSAGE -->
 
     <div
       id="editModeBox"
@@ -1564,7 +2118,19 @@ ADMIN PANEL
       <input
         id="productStock"
         class="form-input"
-        placeholder="Available">
+        placeholder="Available / Not Available">
+
+      <div class="rate-note">
+
+        Available হলে:
+        <b>Available</b>
+
+        <br>
+
+        Stock না থাকলে:
+        <b>Not Available</b>
+
+      </div>
 
     </div>
 
@@ -1601,9 +2167,10 @@ ADMIN PANEL
     </div>
 
 
-    <!-- SAVE -->
+    <!-- SAVE / UPDATE -->
 
     <button
+      type="button"
       id="saveProductButton"
       class="save-btn"
       onclick="saveProduct()">
@@ -1616,6 +2183,7 @@ ADMIN PANEL
     <!-- CLEAR -->
 
     <button
+      type="button"
       class="clear-btn"
       onclick="clearForm()">
 
@@ -1642,6 +2210,7 @@ ADMIN PANEL
     <!-- LOGOUT -->
 
     <button
+      type="button"
       class="logout-btn"
       onclick="logoutAdmin()">
 
@@ -1655,6 +2224,7 @@ ADMIN PANEL
 
 
 <script type="module">
+
 
 /* ==================================================
 FIREBASE IMPORTS
@@ -1753,12 +2323,6 @@ let selectedProduct = null;
 
 let selectedCategory = "All";
 
-/*
-  IMPORTANT:
-  This variable stores the Firestore document ID
-  of the product currently being edited.
-*/
-
 let editingProductId = null;
 
 
@@ -1786,6 +2350,84 @@ function escapeHTML(value){
 
 
 /* ==================================================
+STOCK CHECK
+================================================== */
+
+function isProductAvailable(stock){
+
+  const value =
+    String(stock || "")
+      .trim()
+      .toLowerCase();
+
+  if(
+    value === "" ||
+    value === "0" ||
+    value === "no" ||
+    value === "not available" ||
+    value === "unavailable" ||
+    value === "out of stock" ||
+    value === "out"
+  ){
+
+    return false;
+
+  }
+
+  return true;
+
+}
+
+
+function renderStockStatus(stock){
+
+  const available =
+    isProductAvailable(stock);
+
+  if(available){
+
+    return `
+      <span class="stock-status stock-available">
+        ● AVAILABLE
+      </span>
+    `;
+
+  }
+
+  return `
+    <span class="stock-status stock-not-available">
+      ● NOT AVAILABLE
+    </span>
+  `;
+
+}
+
+
+function renderDetailStock(stock){
+
+  const available =
+    isProductAvailable(stock);
+
+  if(available){
+
+    return `
+      <span class="detail-stock stock-available">
+        ● AVAILABLE
+      </span>
+    `;
+
+  }
+
+  return `
+    <span class="detail-stock stock-not-available">
+      ● NOT AVAILABLE
+    </span>
+  `;
+
+}
+
+
+/* ==================================================
 RATES
 ================================================== */
 
@@ -1795,7 +2437,9 @@ function getRates(value){
     value === undefined ||
     value === null
   ){
+
     return [];
+
   }
 
   return String(value)
@@ -1816,7 +2460,13 @@ function renderRates(value){
     getRates(value);
 
   if(rates.length === 0){
-    return "";
+
+    return `
+      <span style="color:#999;font-size:12px;">
+        Price not set
+      </span>
+    `;
+
   }
 
   return rates
@@ -1840,7 +2490,9 @@ function renderDetailRates(value){
     getRates(value);
 
   if(rates.length === 0){
+
     return "—";
+
   }
 
   return rates
@@ -1864,12 +2516,16 @@ function formatAdminRates(value){
     getRates(value);
 
   if(rates.length === 0){
+
     return "Rate not set";
+
   }
 
   return rates
     .map(
-      rate => "₹" + escapeHTML(rate)
+      rate =>
+        "₹" +
+        escapeHTML(rate)
     )
     .join(" • ");
 
@@ -1934,9 +2590,13 @@ async function loadProducts(){
 
     container.innerHTML = `
       <div class="loading">
+
         Unable to load products.
+
         <br><br>
+
         Please check Firebase.
+
       </div>
     `;
 
@@ -2030,35 +2690,52 @@ function(){
               class="product-image"
               src="${escapeHTML(image)}"
               alt="${escapeHTML(product.name || "Product")}"
+
               onerror="
                 this.src='https://via.placeholder.com/500x350?text=Product'
               "
             >
 
+
             <div class="product-info">
 
               <div class="product-name">
+
                 ${escapeHTML(
                   product.name ||
                   "Unnamed Product"
                 )}
+
               </div>
 
+
               <div class="product-company">
+
                 ${escapeHTML(
                   product.company || ""
                 )}
+
               </div>
 
+
+              ${renderStockStatus(
+                product.stock
+              )}
+
+
               <div class="price">
+
                 ${renderRates(
                   product.price
                 )}
+
               </div>
 
+
               <button
+                type="button"
                 class="view-btn"
-                onclick="openDetails('${product.id}')">
+                data-view-product="${escapeHTML(product.id)}">
 
                 View Details
 
@@ -2072,6 +2749,33 @@ function(){
 
       })
       .join("");
+
+
+  /* ==================================================
+  VIEW DETAILS EVENT
+  ================================================== */
+
+  container
+    .querySelectorAll(
+      "[data-view-product]"
+    )
+    .forEach(button => {
+
+      button.addEventListener(
+        "click",
+        function(){
+
+          const id =
+            this.getAttribute(
+              "data-view-product"
+            );
+
+          openDetails(id);
+
+        }
+      );
+
+    });
 
 };
 
@@ -2123,7 +2827,9 @@ function(id){
 
   const product =
     products.find(
-      item => item.id === id
+      item =>
+        String(item.id) ===
+        String(id)
     );
 
 
@@ -2152,7 +2858,8 @@ function(id){
   document.getElementById(
     "detailsName"
   ).textContent =
-    product.name || "Unnamed Product";
+    product.name ||
+    "Unnamed Product";
 
 
   document.getElementById(
@@ -2164,39 +2871,46 @@ function(id){
 
 
   document.getElementById(
+    "detailsStock"
+  ).innerHTML =
+    renderDetailStock(
+      product.stock
+    );
+
+
+  document.getElementById(
     "detailsType"
   ).textContent =
-    product.type || "—";
+    product.type ||
+    "—";
 
 
   document.getElementById(
     "detailsCompany"
   ).textContent =
-    product.company || "—";
+    product.company ||
+    "—";
 
 
   document.getElementById(
     "detailsPack"
   ).textContent =
-    product.pack || "—";
-
-
-  document.getElementById(
-    "detailsStock"
-  ).textContent =
-    product.stock || "—";
+    product.pack ||
+    "—";
 
 
   document.getElementById(
     "detailsCode"
   ).textContent =
-    product.code || "—";
+    product.code ||
+    "—";
 
 
   document.getElementById(
     "detailsDescription"
   ).textContent =
-    product.description || "—";
+    product.description ||
+    "—";
 
 
   document.getElementById(
@@ -2395,6 +3109,7 @@ onAuthStateChanged(
       renderAdminProducts();
 
     }
+
     else{
 
       document.getElementById(
@@ -2433,6 +3148,7 @@ function(){
       "block";
 
   }
+
   else{
 
     box.style.display =
@@ -2567,33 +3283,44 @@ async function(){
   }
 
 
+  const button =
+    document.getElementById(
+      "saveProductButton"
+    );
+
+
+  const oldButtonText =
+    button.textContent;
+
+
+  button.disabled =
+    true;
+
+  button.textContent =
+    editingProductId
+      ? "Updating..."
+      : "Saving...";
+
+
   try{
 
-    /*
-      EDIT MODE
-      =========
-      If editingProductId exists,
-      UPDATE existing Firestore document.
-    */
+    /* ==================================================
+    UPDATE EXISTING PRODUCT
+    ================================================== */
 
     if(editingProductId){
 
-      console.log(
-        "Updating product:",
-        editingProductId
-      );
-
-
-      await updateDoc(
-
+      const productRef =
         doc(
           db,
           PRODUCTS_COLLECTION,
           editingProductId
-        ),
+        );
 
+
+      await updateDoc(
+        productRef,
         productData
-
       );
 
 
@@ -2603,29 +3330,19 @@ async function(){
 
     }
 
-    /*
-      ADD MODE
-      ========
-      If editingProductId is empty,
-      create a new product.
-    */
+
+    /* ==================================================
+    ADD NEW PRODUCT
+    ================================================== */
 
     else{
 
-      console.log(
-        "Adding new product"
-      );
-
-
       await addDoc(
-
         collection(
           db,
           PRODUCTS_COLLECTION
         ),
-
         productData
-
       );
 
 
@@ -2636,24 +3353,12 @@ async function(){
     }
 
 
-    /*
-      Reset edit mode
-    */
+    /* ==================================================
+    RESET
+    ================================================== */
 
     editingProductId =
       null;
-
-
-    document.getElementById(
-      "editModeBox"
-    ).style.display =
-      "none";
-
-
-    document.getElementById(
-      "saveProductButton"
-    ).textContent =
-      "💾 Save Product";
 
 
     clearForm();
@@ -2662,6 +3367,7 @@ async function(){
     await loadProducts();
 
   }
+
   catch(error){
 
     console.error(
@@ -2674,6 +3380,16 @@ async function(){
       "❌ Product save/update failed.\n\n" +
       error.message
     );
+
+  }
+
+  finally{
+
+    button.disabled =
+      false;
+
+    button.textContent =
+      oldButtonText;
 
   }
 
@@ -2784,7 +3500,9 @@ function renderAdminProducts(){
 
 
   if(!container){
+
     return;
+
   }
 
 
@@ -2802,11 +3520,11 @@ function renderAdminProducts(){
     products
       .map(product => {
 
-        /*
-          IMPORTANT:
-          We use data-product-id instead of putting
-          the Firestore ID directly into onclick.
-        */
+        const available =
+          isProductAvailable(
+            product.stock
+          );
+
 
         return `
 
@@ -2831,7 +3549,25 @@ function renderAdminProducts(){
 
               </div>
 
+              <div class="
+                admin-product-stock
+                ${
+                  available
+                    ? "admin-stock-yes"
+                    : "admin-stock-no"
+                }
+              ">
+
+                ${
+                  available
+                    ? "● AVAILABLE"
+                    : "● NOT AVAILABLE"
+                }
+
+              </div>
+
             </div>
+
 
             <div class="admin-actions">
 
@@ -2843,6 +3579,7 @@ function renderAdminProducts(){
                 ✏️ Edit
 
               </button>
+
 
               <button
                 type="button"
@@ -2863,9 +3600,9 @@ function renderAdminProducts(){
       .join("");
 
 
-  /*
-    Attach Edit/Delete events after rendering.
-  */
+  /* ==================================================
+  EDIT EVENTS
+  ================================================== */
 
   container
     .querySelectorAll(
@@ -2875,12 +3612,14 @@ function renderAdminProducts(){
 
       button.addEventListener(
         "click",
-        function(){
+        function(event){
+
+          event.preventDefault();
+
+          event.stopPropagation();
 
           const id =
-            this.getAttribute(
-              "data-product-id"
-            );
+            this.dataset.productId;
 
           editProduct(id);
 
@@ -2890,6 +3629,10 @@ function renderAdminProducts(){
     });
 
 
+  /* ==================================================
+  DELETE EVENTS
+  ================================================== */
+
   container
     .querySelectorAll(
       ".delete-btn"
@@ -2898,12 +3641,14 @@ function renderAdminProducts(){
 
       button.addEventListener(
         "click",
-        function(){
+        function(event){
+
+          event.preventDefault();
+
+          event.stopPropagation();
 
           const id =
-            this.getAttribute(
-              "data-product-id"
-            );
+            this.dataset.productId;
 
           deleteProduct(id);
 
@@ -2928,9 +3673,9 @@ function(id){
   );
 
 
-  /*
-    Find exact product from loaded Firebase data.
-  */
+  /* ==================================================
+  FIND PRODUCT
+  ================================================== */
 
   const product =
     products.find(
@@ -2951,18 +3696,23 @@ function(id){
   }
 
 
-  /*
-    IMPORTANT:
-    Save Firestore document ID.
-  */
+  /* ==================================================
+  STORE FIRESTORE ID
+  ================================================== */
 
   editingProductId =
-    product.id;
+    String(product.id);
 
 
-  /*
-    Fill every form field.
-  */
+  console.log(
+    "EDITING PRODUCT ID:",
+    editingProductId
+  );
+
+
+  /* ==================================================
+  FILL PRODUCT NAME
+  ================================================== */
 
   document.getElementById(
     "productName"
@@ -2970,17 +3720,29 @@ function(id){
     product.name || "";
 
 
+  /* ==================================================
+  FILL IMAGE
+  ================================================== */
+
   document.getElementById(
     "productImage"
   ).value =
     product.image || "";
 
 
+  /* ==================================================
+  FILL PRICE
+  ================================================== */
+
   document.getElementById(
     "productPrice"
   ).value =
     product.price || "";
 
+
+  /* ==================================================
+  PRODUCT TYPE
+  ================================================== */
 
   const standardTypes = [
     "Medicine",
@@ -2990,22 +3752,22 @@ function(id){
   ];
 
 
+  const productType =
+    String(
+      product.type || ""
+    );
+
+
   if(
     standardTypes.includes(
-      product.type
+      productType
     )
   ){
 
     document.getElementById(
       "productType"
     ).value =
-      product.type;
-
-
-    document.getElementById(
-      "customTypeGroup"
-    ).style.display =
-      "none";
+      productType;
 
 
     document.getElementById(
@@ -3013,7 +3775,14 @@ function(id){
     ).value =
       "";
 
+
+    document.getElementById(
+      "customTypeGroup"
+    ).style.display =
+      "none";
+
   }
+
   else{
 
     document.getElementById(
@@ -3025,7 +3794,7 @@ function(id){
     document.getElementById(
       "customProductType"
     ).value =
-      product.type || "";
+      productType;
 
 
     document.getElementById(
@@ -3036,11 +3805,19 @@ function(id){
   }
 
 
+  /* ==================================================
+  COMPANY
+  ================================================== */
+
   document.getElementById(
     "productCompany"
   ).value =
     product.company || "";
 
+
+  /* ==================================================
+  PACK
+  ================================================== */
 
   document.getElementById(
     "productPack"
@@ -3048,11 +3825,19 @@ function(id){
     product.pack || "";
 
 
+  /* ==================================================
+  STOCK
+  ================================================== */
+
   document.getElementById(
     "productStock"
   ).value =
     product.stock || "";
 
+
+  /* ==================================================
+  CODE
+  ================================================== */
 
   document.getElementById(
     "productCode"
@@ -3060,15 +3845,19 @@ function(id){
     product.code || "";
 
 
+  /* ==================================================
+  DESCRIPTION
+  ================================================== */
+
   document.getElementById(
     "productDescription"
   ).value =
     product.description || "";
 
 
-  /*
-    Show EDIT MODE.
-  */
+  /* ==================================================
+  SHOW EDIT MODE
+  ================================================== */
 
   document.getElementById(
     "editModeBox"
@@ -3082,32 +3871,59 @@ function(id){
     "✏️ Update Product";
 
 
-  /*
-    Scroll to top of admin form.
-  */
+  /* ==================================================
+  SCROLL ADMIN MODAL TO TOP
+  ================================================== */
 
-  const adminModal =
+  const modal =
     document.getElementById(
       "adminModal"
     );
 
 
-  adminModal.scrollTop =
+  modal.scrollTop =
     0;
 
 
-  /*
-    Focus product name.
-  */
+  /* ==================================================
+  SCROLL MODAL BOX
+  ================================================== */
 
-  document.getElementById(
-    "productName"
-  ).focus();
+  const box =
+    modal.querySelector(
+      ".modal-box"
+    );
+
+
+  if(box){
+
+    box.scrollIntoView({
+      behavior:"smooth",
+      block:"start"
+    });
+
+  }
+
+
+  /* ==================================================
+  FOCUS
+  ================================================== */
+
+  setTimeout(
+    () => {
+
+      document.getElementById(
+        "productName"
+      ).focus();
+
+    },
+    250
+  );
 
 
   console.log(
-    "Editing:",
-    product
+    "EDIT MODE ACTIVE:",
+    editingProductId
   );
 
 };
@@ -3145,7 +3961,9 @@ async function deleteProduct(id){
 
 
   if(!confirmed){
+
     return;
+
   }
 
 
@@ -3156,7 +3974,7 @@ async function deleteProduct(id){
       doc(
         db,
         PRODUCTS_COLLECTION,
-        id
+        String(id)
       )
 
     );
@@ -3168,7 +3986,8 @@ async function deleteProduct(id){
 
 
     if(
-      editingProductId === id
+      String(editingProductId) ===
+      String(id)
     ){
 
       clearForm();
@@ -3179,12 +3998,14 @@ async function deleteProduct(id){
     await loadProducts();
 
   }
+
   catch(error){
 
     console.error(
       "DELETE ERROR:",
       error
     );
+
 
     alert(
       "❌ Could not delete product.\n\n" +
@@ -3207,10 +4028,13 @@ async function(){
 
     await signOut(auth);
 
+
     editingProductId =
       null;
 
+
     clearForm();
+
 
     document.getElementById(
       "adminModal"
@@ -3218,9 +4042,13 @@ async function(){
       "none";
 
   }
+
   catch(error){
 
-    console.error(error);
+    console.error(
+      "LOGOUT ERROR:",
+      error
+    );
 
   }
 
@@ -3255,6 +4083,109 @@ document
 
 
 /* ==================================================
+CREATE FALLING FLOWERS
+================================================== */
+
+function createFallingFlowers(){
+
+  const container =
+    document.getElementById(
+      "fallingFlowers"
+    );
+
+
+  if(!container){
+
+    return;
+
+  }
+
+
+  const flowers = [
+
+    "🌸",
+    "🌺",
+    "🌼",
+    "🌷",
+    "💮",
+    "🌻",
+    "🏵️"
+
+  ];
+
+
+  const totalFlowers =
+    55;
+
+
+  for(
+    let i = 0;
+    i < totalFlowers;
+    i++
+  ){
+
+    const flower =
+      document.createElement(
+        "span"
+      );
+
+
+    flower.className =
+      "falling-flower";
+
+
+    flower.textContent =
+      flowers[
+        Math.floor(
+          Math.random() *
+          flowers.length
+        )
+      ];
+
+
+    flower.style.left =
+      (
+        Math.random() * 100
+      ) + "%";
+
+
+    flower.style.fontSize =
+      (
+        14 +
+        Math.random() * 20
+      ) + "px";
+
+
+    flower.style.animationDuration =
+      (
+        5 +
+        Math.random() * 8
+      ) + "s";
+
+
+    flower.style.animationDelay =
+      (
+        -Math.random() * 12
+      ) + "s";
+
+
+    flower.style.opacity =
+      (
+        .45 +
+        Math.random() * .55
+      );
+
+
+    container.appendChild(
+      flower
+    );
+
+  }
+
+}
+
+
+/* ==================================================
 WELCOME SCREEN
 ================================================== */
 
@@ -3271,6 +4202,7 @@ setTimeout(
 
       welcome.style.transition =
         "opacity 1s ease";
+
 
       welcome.style.opacity =
         "0";
@@ -3294,10 +4226,13 @@ setTimeout(
 
 
 /* ==================================================
-INITIAL LOAD
+INITIAL START
 ================================================== */
 
+createFallingFlowers();
+
 loadProducts();
+
 
 </script>
 
